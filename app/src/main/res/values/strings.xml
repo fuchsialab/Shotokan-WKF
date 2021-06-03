@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">Shotokan WKF</string>
+    <string name="gichin_funakoshi">Gichin Funakoshi</string>
+    <string name="givhin_funokoshi">Gichin Funakoshi</string>
+
+    <string name="history">
+
+        History, Philosophy and Instruction History:
+
+Funakoshi Sensei PhotoKarate was introduced to Japan in 1922 by an Okinawan schoolteacher by the name of Gichin Funakoshi. Gichin Funakoshi is widely considered as the "father" of modern karate. He was born in Okinawa in 1868 and learnt karate from two highly respected Okinawan masters of the art, Yasutsune (Ankoh) Itosu and Yasutsune (Anko) Azato.
+
+Funakoshi modified the art, taking inspiration from traditional Japanese budo styles (kendo, judo, etc) and emphasised the philosophical aspects. It was this new karate-do that he took to the Japan and was the first expert to introduce the art to the mainland.
+
+In 1916 he gave a demonstration to the Butokuden in Kyoto, Japan, which at that time was the official centre of all martial arts. On March 6, 1921, the Crown Prince, who was later to become the Emperor of Japan, visited Okinawa and Master Funakoshi was once again asked to demonstrate karate.
+
+In the early spring of 1922 Master Funakoshi travelled to Tokyo to present his art at the First National Athletic exhibition in Tokyo organized by the Ministry of Education.   For Master Funakoshi, the word karate eventually took on a deeper and broader meaning through the synthesis of these many methods becoming karate-do, literally the "way of karate," or of the ‘empty hand.
+
+Training in Funakoshi’s karate-do progressively became an education and preparation for life itself. Master Funakoshi taught only one method, a total discipline, which represented a blending of Okinawan karate styles and Japanese budo. This method became known as Shotokan-ryu. It was through Master Funakoshi’s hard work that in 1948, the Japan Karate Association (JKA) was established.
+
+The establishment of the JKA with Masatoshi Nakayama as its headmaster after Funakoshi’s passing in 1957, lead the way to the spread of Shotokan karate throughout the world.   Sensei Masatoshi Nakayama was born in 1913 and began training in Karate under Master Funakoshi Gichin in 1931.
+
+After graduating from Takashoku University in 1937 he went to Peking to study Chinese, whilst there he also studied various styles of Chinese fighting. It was through Master Nakayama’s foresight that Shotokan is as popular as it is today as he was responsible for the global dissemination of the style in the 1960\'s and 1970\'s.
+
+He also placed Shotokan on a firm scientific foundation after performing an in-depth study of the principles of Kinesiology, Anatomy, Psychology and Physics involved in Karate training. Master Nakayama has published a number of books including "Dynamic Karate\", and the “Best Karate” series, which many Shotokan stylists use in their training.
+
+He has also produced videos providing detailed technical and practical information on Kata, Kihon and Kumite. Sensei Masatoshi Nakayama passed away on April 15th, 1987 at the age of 74. He held the posthumous grade of 10thDan.   "One of the most striking features of karate is that it may be engaged in by anyone, young or old, strong or weak, male or female."
+
+Students of the Japanese Karate-Do dojo live by Master Funakoshi's five precepts called Dojo Kun. Dojo Kun (Principles of the Karate school) Seek perfection of character Be faithful Endeavor Respect others Refrain from violent behavior
+
+Karate Instruction Each Class begins and ends with brief meditation. Basic blocks, punches, kicks and stances are also practiced. Students also learn Kata - a set combination of moves and Kumite - sparring Techniques and tactics.
+
+Kihon (Basics)
+Karate is built upon a strong foundation of basic moves that include specific stances, punches, blocks, and kicks. Proper body alignment and movement are emphasized, as are concentration and focus. During the practice of basics, student learns stability, balance, proper technique, and the principles of body contraction and relaxation. Basics are practiced during every training session by the karate student of every level.
+
+Kata (Forms)
+Kata, the formal movements of karate, are its very essence. They are sequences of movements, which simulate attacks and defenses against a number of imaginary enemies. Katas contain all the basic techniques and stances, which are necessary to attain rhythm and coordination. Each kata begins with a block to emphasize the use of karate strictly for self-defense. They can be roughly divided into two types: those which emphasize muscle strengthening and body building, and those that concentrate more on speed training and the development of lightning fast reflexes.
+
+Kumite (Sparring)
+Kumite is a form used to apply offensive and defensive techniques practiced in the kata under more realistic condition in which, by prearrangement between the participants, one applies offensive and the other defensive techniques. In other words, where the practice of kata assumes imaginary opponents, kumite is practices with another karateka in alternating roles of defender and aggressor.
+
+Kumite allows the practical application of the moves found in the kata. During kumite, students learn proper distancing, timing, body shifting, and focus. Jiyu Kumite is free sparring, which is sparring engaged in without prearrangement. It is practiced by higher belts and is a form of training that is developed through the practice of step sparring (prearranged sparring).
+
+</string>
+    <string name="todo">TODO</string>
+    <string name="kata_name">Kata Name</string>
+    <string name="basic_kata">Basic Kata</string>
+
+    <string name="button">Button</string>
+    <string name="T1">S0Q4gqBUs7c</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="nunchaku">Nunchaku</string>
+    <string name="lkmkm">https://fuchsialabstore.blogspot.com/p/privacy-policy.html</string>
+    <string name="jjjj">https://play.google.com/store/apps/details?id=com.fuchsia.shotokanwkf</string>
+
+    <string name="rate_dialog_title">Rate this app</string>
+    <string name="rate_dialog_message">Please rate this App if you enjoying. Thanks for your support.</string>
+    <string name="rate_dialog_ok">Rate It Now</string>
+    <string name="rate_dialog_cancel">Remind Me Later</string>
+    <string name="rate_dialog_no">No, Thanks</string>
+
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="title_activity_drawer">drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+
+</resources>

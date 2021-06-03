@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:background="#CFCFCF"
+    tools:openDrawer="start"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            app:titleTextColor="#ffffff"
+            android:background="@color/colorPrimary"
+            app:title="Shotokan Karate WKF">
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.cardview.widget.CardView
+
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            app:cardCornerRadius="20dp"
+            android:background="@drawable/ripple_effect"
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:id="@+id/linncu"
+            android:layout_height="175dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:background="@drawable/cardback"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <RelativeLayout
+
+                android:background="@drawable/ripple_effect"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+
+                    android:layout_marginTop="4dp"
+                    android:textStyle="bold"
+                    android:textColor="#E91E63"
+                    android:textSize="16sp"
+                    android:text="Special for you"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <ImageView
+                    android:layout_marginTop="4dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/bunk"
+                    android:id="@+id/imgvv"
+                    android:layout_width="250dp"
+                    android:layout_height="135dp"/>
+                <TextView
+
+                    android:textStyle="bold"
+                    android:textColor="#007CB5"
+                    android:textSize="16sp"
+                    android:text="Kata in Details (Correction, Bunkai)"
+                    android:layout_below="@id/imgvv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    <ScrollView
+
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/linncu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+
+
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="165dp"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="14dp"
+
+                        >
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            app:cardCornerRadius="8dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="7dp"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+
+
+                            >
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/Imageview1"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:src="@drawable/his"
+                                    android:layout_centerInParent="true"
+
+                                    />
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="History"
+                                    android:textColor="#007CB5"
+                                    android:textSize="16sp"
+                                    android:layout_below="@id/Imageview1"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:textStyle="bold"
+
+                                    />
+
+                                <Button
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/btnhistory"
+                                    android:background="@drawable/ripple_effect"
+
+                                    />
+                            </RelativeLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            app:cardCornerRadius="8dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginStart="7dp"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+
+
+                            >
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/Imageview2"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:src="@drawable/wkf"
+                                    android:layout_centerInParent="true"
+
+                                    />
+
+                                <TextView
+                                    android:textColor="#007CB5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="WKF Rull"
+                                    android:textSize="16sp"
+                                    android:layout_below="@id/Imageview2"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:textStyle="bold"
+
+                                    />
+
+                                <Button
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/btnwkfrull"
+                                    android:background="@drawable/ripple_effect"
+
+
+                                    />
+                            </RelativeLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="165dp"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="14dp"
+
+                        >
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            app:cardCornerRadius="8dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="7dp"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+
+
+                            >
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/Imageview3"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:src="@drawable/basic"
+                                    android:layout_centerInParent="true"
+
+                                    />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Basic"
+                                    android:textSize="16sp"
+                                    android:layout_below="@id/Imageview3"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:textColor="#007CB5"
+                                    android:textStyle="bold"
+                                    />
+
+                                <Button
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/btnbasic"
+                                    android:background="@drawable/ripple_effect"
+
+
+                                    />
+                            </RelativeLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            app:cardCornerRadius="8dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginStart="7dp"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+
+
+                            >
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/Imageview4"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:src="@drawable/kata"
+                                    android:layout_centerInParent="true"
+
+                                    />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Kata"
+                                    android:textSize="16sp"
+                                    android:layout_below="@id/Imageview4"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:textColor="#007CB5"
+                                    android:textStyle="bold"
+                                    />
+
+                                <Button
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/btnkata"
+                                    android:background="@drawable/ripple_effect"
+
+
+                                    />
+                            </RelativeLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="165dp"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="60dp"
+
+                        >
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            app:cardCornerRadius="8dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="7dp"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+
+
+                            >
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/Imageviewnun"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:src="@drawable/kum"
+                                    android:layout_centerInParent="true"
+
+                                    />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Kumite"
+                                    android:textSize="16sp"
+                                    android:layout_below="@id/Imageviewnun"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:textColor="#007CB5"
+                                    android:textStyle="bold"
+                                    />
+
+                                <Button
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/btnkumite"
+                                    android:background="@drawable/ripple_effect"
+
+                                    />
+                            </RelativeLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            app:cardCornerRadius="8dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginStart="7dp"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+
+
+                            >
+
+                            <RelativeLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/Imageviewkumite"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:src="@drawable/nun"
+                                    android:layout_centerInParent="true"
+
+                                    />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/nunchaku"
+                                    android:textSize="16sp"
+                                    android:layout_below="@id/Imageviewkumite"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:textColor="#007CB5"
+                                    android:textStyle="bold"
+                                    />
+
+                                <Button
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:id="@+id/btnnun"
+                                    android:background="@drawable/ripple_effect"
+
+
+                                    />
+                            </RelativeLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/bannerad"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+    </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/navdrawer"
+        app:headerLayout="@layout/nav_header"
+        app:itemIconTint="@color/colorPrimary"
+        app:menu="@menu/nav_item"
+        android:layout_gravity="start"
+        >
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

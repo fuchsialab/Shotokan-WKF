@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "153072997256",
+    "firebase_url": "https://shotokan-wkf.firebaseio.com",
+    "project_id": "shotokan-wkf",
+    "storage_bucket": "shotokan-wkf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153072997256:android:445e80f60f7ac6f884a03d",
+        "android_client_info": {
+          "package_name": "com.fuchsia.shotokanwkf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153072997256-tprqom3t6v00kq5m5lvtf6lj4j5ufdor.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fuchsia.shotokanwkf",
+            "certificate_hash": "c4744223119835ee353ba1cdca2da5aa2da2292a"
+          }
+        },
+        {
+          "client_id": "153072997256-bs4pl6h42ugu85m51ji58fc9c5ka20g2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7t94sCCuGXzzaSnFKduE19qgmWsOiPMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153072997256-bs4pl6h42ugu85m51ji58fc9c5ka20g2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
