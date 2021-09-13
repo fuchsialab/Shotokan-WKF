@@ -13,27 +13,27 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.AdapterStatus;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.Objects;
+import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import static com.google.firebase.database.FirebaseDatabase.getInstance;
 
 
 public class basicKarate extends AppCompatActivity {
@@ -42,10 +42,11 @@ public class basicKarate extends AppCompatActivity {
     private AdView mAdView;
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
-    private String bannerid;
-    private String interstitialId;
     private static InterstitialAd mInterstitialAd;
-    private String appid;
+
+    static basicKarate instance;
+    private String bannerid = "ca-app-pub-8700099206862921/2944855201";
+    static String interstitialId = "ca-app-pub-8700099206862921/6692528520";
 
     ProgressBar progressBar;
     basicAdapter adapter;
@@ -65,7 +66,23 @@ public class basicKarate extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         mDatabase= FirebaseDatabase.getInstance().getReference();
         mDatabase.keepSynced(true);
-        mInterstitialAd=new InterstitialAd(basicKarate.this);
+
+        instance = this;
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+                Map<String, AdapterStatus> statusMap = initializationStatus.getAdapterStatusMap();
+                for (String adapterClass : statusMap.keySet()) {
+                    AdapterStatus status = statusMap.get(adapterClass);
+                    Log.d("MyApp", String.format(
+                            "Adapter name: %s, Description: %s, Latency: %d",
+                            adapterClass, status.getDescription(), status.getLatency()));
+                }
+
+                // Start loading ads here...
+            }
+        });
 
         progressBar = findViewById(R.id.progressbar);
 
@@ -73,9 +90,10 @@ public class basicKarate extends AppCompatActivity {
         recview = (RecyclerView) findViewById(R.id.recycleS);
         recview.setLayoutManager(new LinearLayoutManager(this));
 
+
         FirebaseRecyclerOptions<basicmodel> options =
                 new FirebaseRecyclerOptions.Builder<basicmodel>()
-                        .setQuery(getInstance().getReference().child("Basic"), basicmodel.class)
+                            .setQuery(FirebaseDatabase.getInstance().getReference().child("Basic"), basicmodel.class)
                         .build();
 
         adapter = new basicAdapter(options);
@@ -83,6 +101,8 @@ public class basicKarate extends AppCompatActivity {
         recview.setAdapter(adapter);
 
     }
+
+
 
     private String checkConnection() {
 
@@ -102,52 +122,77 @@ public class basicKarate extends AppCompatActivity {
     }
 
 
+    public static basicKarate getInstance() {
+        return instance;
+    }
+
+
     public void bannerAds(){
-        DatabaseReference rootref= getInstance().getReference().child("AdUnits");
-        rootref.addListenerForSingleValueEvent(new ValueEventListener() {
 
+        View view= findViewById(R.id.bannerad);
+        mAdView=new AdView(basicKarate.this);
+        ((RelativeLayout)view).addView(mAdView);
+        mAdView.setAdSize(AdSize.BANNER);
+        mAdView.setAdUnitId(bannerid);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
+        //MediationTestSuite.launch(basicKarate.this);
+
+        InterstitialAd.load(basicKarate.this,interstitialId, adRequest, new InterstitialAdLoadCallback() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                bannerid=String.valueOf(Objects.requireNonNull(dataSnapshot.child("banner").getValue()).toString());
-                appid=String.valueOf(Objects.requireNonNull(dataSnapshot.child("appid").getValue()).toString());
-                MobileAds.initialize(basicKarate.this,appid);
-                View view= findViewById(R.id.bannerad);
-                mAdView=new AdView(basicKarate.this);
-                ((RelativeLayout)view).addView(mAdView);
-                mAdView.setAdSize(AdSize.BANNER);
-                mAdView.setAdUnitId(bannerid);
-                AdRequest adRequest = new AdRequest.Builder().build();
-                mAdView.loadAd(adRequest);
+            public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
 
-                interstitialId=String.valueOf(Objects.requireNonNull(dataSnapshot.child("Interstitial").getValue()).toString());
-                mInterstitialAd.setAdUnitId(interstitialId);
-                mInterstitialAd.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build());
+                mInterstitialAd = interstitialAd;
 
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+
+                mInterstitialAd = null;
 
             }
         });
-
 
     }
 
-    public static void showInterstitial() {
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
+
+
+    public void showInterstitial() {
+
+
+        if (mInterstitialAd != null) {
+
+            mInterstitialAd.show(basicKarate.this);
+
+            mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
+                @Override
+                public void onAdDismissedFullScreenContent() {
+
+                    AdRequest adRequest = new AdRequest.Builder().build();
+
+                    InterstitialAd.load(basicKarate.this, interstitialId, adRequest, new InterstitialAdLoadCallback() {
+                        @Override
+                        public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+
+                            mInterstitialAd = interstitialAd;
+
+                        }
+
+                        @Override
+                        public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+
+                            mInterstitialAd = null;
+
+                        }
+                    });
+
+                }
+
+            });
+
         }
-
-        mInterstitialAd.setAdListener(new AdListener() {
-
-            @Override
-            public void onAdClosed() {
-                mInterstitialAd.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build());
-
-            }
-        });
 
     }
 
@@ -176,4 +221,3 @@ public class basicKarate extends AppCompatActivity {
 
 
 }
-

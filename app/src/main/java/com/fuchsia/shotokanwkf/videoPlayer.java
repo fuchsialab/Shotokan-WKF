@@ -5,14 +5,14 @@
  import android.os.Bundle;
  import android.util.Log;
  import android.view.View;
-import android.view.WindowManager;
+ import android.view.WindowManager;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
+ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
+ import androidx.annotation.NonNull;
+ import androidx.appcompat.app.AppCompatActivity;
 
  public class videoPlayer extends AppCompatActivity {
 

@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-
 public class basicAdapter extends FirebaseRecyclerAdapter<basicmodel,basicAdapter.myviewholder> {
 
     public basicAdapter(FirebaseRecyclerOptions<basicmodel> options) {
@@ -37,7 +36,9 @@ public class basicAdapter extends FirebaseRecyclerAdapter<basicmodel,basicAdapte
                 Intent intent =new Intent(activity, videoPlayer.class);
                 intent.putExtra("nam", basicmodel.getURL());
                 activity.startActivity(intent);
-                basicKarate.showInterstitial();
+
+                basicKarate a = basicKarate.getInstance();
+                a.showInterstitial();
 
 
             }
@@ -52,7 +53,9 @@ public class basicAdapter extends FirebaseRecyclerAdapter<basicmodel,basicAdapte
                 Intent intent= new Intent(activity, wkfShotokan.class);
                 intent.putExtra("katapic",basicmodel.getPic());
                 activity.startActivity(intent);
-                basicKarate.showInterstitial();
+
+                basicKarate a = basicKarate.getInstance();
+                a.showInterstitial();
 
 
             }

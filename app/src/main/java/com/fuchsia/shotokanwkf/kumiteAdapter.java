@@ -15,7 +15,6 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-
 public class kumiteAdapter extends FirebaseRecyclerAdapter<kumitemodel,kumiteAdapter.myviewholder> {
 
     public kumiteAdapter(FirebaseRecyclerOptions<kumitemodel> options) {
@@ -35,7 +34,9 @@ public class kumiteAdapter extends FirebaseRecyclerAdapter<kumitemodel,kumiteAda
                     Intent intent =new Intent(activity, videoPlayer.class);
                     intent.putExtra("nam", kumitemodel.getURL());
                     activity.startActivity(intent);
-                    kumiteActivity.showInterstitial();
+
+                    kumiteActivity a = kumiteActivity.getInstance();
+                    a.showInterstitial();
 
             }
 

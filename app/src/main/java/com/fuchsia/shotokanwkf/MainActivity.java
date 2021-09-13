@@ -13,12 +13,17 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.AdapterStatus;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +32,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Map;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -52,11 +58,6 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
 
     private String bannerid;
     private InterstitialAd mInterstitialAd;
-    private InterstitialAd nInterstitialAd;
-    private static InterstitialAd sInterstitialAd;
-    private InterstitialAd qInterstitialAd;
-    private InterstitialAd rInterstitialAd;
-    private String appid;
 
     ProgressDialog progressDialog;
     Timer timer;
@@ -164,11 +165,11 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
 
                     case R.id.menushare:
 
-                        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
                         sharingIntent.setType("text/plain");
                         String shareBody = "Download Shotokan Karate App and Learn.  https://play.google.com/store/apps/details?id=com.fuchsia.shotokanwkf";
-                        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Shotokan WKF");
-                        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Shotokan WKF");
+                        sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
                         startActivity(Intent.createChooser(sharingIntent, "Share via"));
                         drawerLayout.closeDrawer(GravityCompat.START);
 
@@ -231,13 +232,20 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
         mDatabase= FirebaseDatabase.getInstance().getReference();
         mDatabase.keepSynced(true);
 
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+                Map<String, AdapterStatus> statusMap = initializationStatus.getAdapterStatusMap();
+                for (String adapterClass : statusMap.keySet()) {
+                    AdapterStatus status = statusMap.get(adapterClass);
+                    Log.d("MyApp", String.format(
+                            "Adapter name: %s, Description: %s, Latency: %d",
+                            adapterClass, status.getDescription(), status.getLatency()));
+                }
 
-        mInterstitialAd=new InterstitialAd(MainActivity.this);
-        mInterstitialAd=new InterstitialAd(MainActivity.this);
-        nInterstitialAd=new InterstitialAd(MainActivity.this);
-        qInterstitialAd=new InterstitialAd(MainActivity.this);
-        rInterstitialAd=new InterstitialAd(MainActivity.this);
-        sInterstitialAd=new InterstitialAd(MainActivity.this);
+                // Start loading ads here...
+            }
+        });
         
 
         history = findViewById(R.id.btnhistory);
@@ -250,50 +258,23 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
             history.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(mInterstitialAd.isLoaded())
-                    {
-                        mInterstitialAd.show();
-                    }
-                    else
-                    {
-                        startActivity(new Intent(MainActivity.this,historyShotokan.class));
-                    }
 
+                    startActivity(new Intent(MainActivity.this,historyShotokan.class));
+                    showInterstitial();
                 }
 
             });
-            mInterstitialAd.setAdListener(new AdListener(){
 
-                @Override
-                public void onAdClosed() {
-                    startActivity(new Intent(MainActivity.this, historyShotokan.class));
-
-                }
-            });
             wkf.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    if(nInterstitialAd.isLoaded())
-                    {
-                        nInterstitialAd.show();
-                    }
-                    else
-                    {
-                        startActivity(new Intent(MainActivity.this,RULL.class));
-                    }
-
+                    startActivity(new Intent(MainActivity.this,RULL.class));
+                    showInterstitial();
 
                 }
             });
-            nInterstitialAd.setAdListener(new AdListener(){
 
-                @Override
-                public void onAdClosed() {
-                    startActivity(new Intent(MainActivity.this, RULL.class));
-                    nInterstitialAd.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build());
-                }
-            });
             basic.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -315,23 +296,10 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
             kumite.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(qInterstitialAd.isLoaded())
-                    {
-                        qInterstitialAd.show();
-                    }
-                    else
-                    {
-                        startActivity(new Intent(MainActivity.this,kumiteActivity.class));
-                    }
 
-                }
-            });
-            qInterstitialAd.setAdListener(new AdListener(){
+                    startActivity(new Intent(MainActivity.this,kumiteActivity.class));
+                    showInterstitial();
 
-                @Override
-                public void onAdClosed() {
-                    startActivity(new Intent(MainActivity.this, kumiteActivity.class));
-                    qInterstitialAd.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build());
                 }
             });
 
@@ -340,27 +308,16 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
             @Override
             public void onClick(View view) {
 
-                if(rInterstitialAd.isLoaded())
-                {
-                    rInterstitialAd.show();
-                }
-                else
-                {
-                    Intent intent =new Intent(MainActivity.this, videoPlayer.class);
-                    intent.putExtra("nam", "fAEHQzfEN0g");
-                    startActivity(intent);
-                }
+                Intent intent =new Intent(MainActivity.this, videoPlayer.class);
+                intent.putExtra("nam", "fAEHQzfEN0g");
+                startActivity(intent);
+
+                showInterstitial();
+
+
             }
             });
-            rInterstitialAd.setAdListener(new AdListener(){
 
-                @Override
-                public void onAdClosed() {
-                    Intent intent =new Intent(MainActivity.this, videoPlayer.class);
-                    intent.putExtra("nam", "fAEHQzfEN0g");
-                    startActivity(intent);
-                }
-            });
 
 
     }
@@ -387,22 +344,6 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
 
     }
 
-    public static void showInterstitial() {
-        if (sInterstitialAd.isLoaded()) {
-            sInterstitialAd.show();
-        }
-
-
-        sInterstitialAd.setAdListener(new AdListener() {
-
-            @Override
-            public void onAdClosed() {
-                sInterstitialAd.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build());
-
-            }
-        });
-
-    }
 
 
 
@@ -411,12 +352,11 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
         rootref.addListenerForSingleValueEvent(new ValueEventListener() {
 
 
-
-
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 bannerid=String.valueOf(Objects.requireNonNull(dataSnapshot.child("banner").getValue()).toString());
                 interstitialId=String.valueOf(Objects.requireNonNull(dataSnapshot.child("Interstitial").getValue()).toString());
+
                 View view= findViewById(R.id.bannerad);
                 mAdView=new AdView(MainActivity.this);
                 ((RelativeLayout)view).addView(mAdView);
@@ -424,20 +364,26 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
                 mAdView.setAdUnitId(bannerid);
                 AdRequest adRequest = new AdRequest.Builder().build();
                 mAdView.loadAd(adRequest);
-                appid=String.valueOf(Objects.requireNonNull(dataSnapshot.child("appid").getValue()).toString());
-                MobileAds.initialize(MainActivity.this,appid);
+
+                InterstitialAd.load(MainActivity.this,interstitialId, adRequest, new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+
+                        mInterstitialAd = interstitialAd;
+
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+
+                        mInterstitialAd = null;
+
+                    }
+                });
 
 
-                mInterstitialAd.setAdUnitId(interstitialId);
-                mInterstitialAd.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build());
-                nInterstitialAd.setAdUnitId(interstitialId);
-                nInterstitialAd.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build());
-                qInterstitialAd.setAdUnitId(interstitialId);
-                qInterstitialAd.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build());
-                rInterstitialAd.setAdUnitId(interstitialId);
-                rInterstitialAd.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build());
-                sInterstitialAd.setAdUnitId(interstitialId);
-                sInterstitialAd.loadAd(new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build());
+                //MediationTestSuite.launch(MainActivity.this);
+
 
             }
 
@@ -450,6 +396,44 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
 
 
     }
+
+    public void showInterstitial() {
+
+
+        if (mInterstitialAd != null) {
+
+            mInterstitialAd.show(MainActivity.this);
+
+            mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
+                @Override
+                public void onAdDismissedFullScreenContent() {
+
+                    AdRequest adRequest = new AdRequest.Builder().build();
+
+                    InterstitialAd.load(MainActivity.this, interstitialId, adRequest, new InterstitialAdLoadCallback() {
+                        @Override
+                        public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+
+                            mInterstitialAd = interstitialAd;
+
+                        }
+
+                        @Override
+                        public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+
+                            mInterstitialAd = null;
+
+                        }
+                    });
+
+                }
+
+            });
+
+        }
+
+    }
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

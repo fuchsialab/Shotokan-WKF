@@ -1,18 +1,18 @@
 package com.fuchsia.shotokanwkf;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.AdapterStatus;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,7 +20,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Map;
 import java.util.Objects;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class wkfShotokan extends AppCompatActivity {
@@ -29,11 +33,8 @@ public class wkfShotokan extends AppCompatActivity {
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
     private String bannerid;
-    private InterstitialAd mInterstitialAd;
-    private String interstitialId;
     PhotoView photoView;
     Bundle bundle;
-    private String appid;
 
 
     @Override
@@ -46,7 +47,21 @@ public class wkfShotokan extends AppCompatActivity {
         bannerAds();
         mAuth= FirebaseAuth.getInstance();
         mDatabase= FirebaseDatabase.getInstance().getReference();
-        mInterstitialAd=new InterstitialAd(wkfShotokan.this);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+                Map<String, AdapterStatus> statusMap = initializationStatus.getAdapterStatusMap();
+                for (String adapterClass : statusMap.keySet()) {
+                    AdapterStatus status = statusMap.get(adapterClass);
+                    Log.d("MyApp", String.format(
+                            "Adapter name: %s, Description: %s, Latency: %d",
+                            adapterClass, status.getDescription(), status.getLatency()));
+                }
+
+                // Start loading ads here...
+            }
+        });
 
         bundle= getIntent().getExtras();
         if(bundle !=null){
@@ -297,24 +312,24 @@ public class wkfShotokan extends AppCompatActivity {
     }
 
     public void bannerAds(){
-        DatabaseReference rootref= FirebaseDatabase.getInstance().getReference().child("AdUnits");
+        DatabaseReference rootref=FirebaseDatabase.getInstance().getReference().child("AdUnits");
         rootref.addListenerForSingleValueEvent(new ValueEventListener() {
+
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 bannerid=String.valueOf(Objects.requireNonNull(dataSnapshot.child("banner").getValue()).toString());
-                interstitialId=String.valueOf(Objects.requireNonNull(dataSnapshot.child("Interstitial").getValue()).toString());
-                appid=String.valueOf(Objects.requireNonNull(dataSnapshot.child("appid").getValue()).toString());
-                MobileAds.initialize(wkfShotokan.this,appid);
+
                 View view= findViewById(R.id.bannerad);
                 mAdView=new AdView(wkfShotokan.this);
                 ((RelativeLayout)view).addView(mAdView);
                 mAdView.setAdSize(AdSize.BANNER);
                 mAdView.setAdUnitId(bannerid);
-                mInterstitialAd.setAdUnitId(interstitialId);
                 AdRequest adRequest = new AdRequest.Builder().build();
                 mAdView.loadAd(adRequest);
-                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+
+                //MediationTestSuite.launch(wkfShotokan.this);
 
 
             }
@@ -330,7 +345,4 @@ public class wkfShotokan extends AppCompatActivity {
 
 
     }
-
-
-
 }

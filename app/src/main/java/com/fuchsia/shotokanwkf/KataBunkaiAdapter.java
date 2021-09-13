@@ -33,7 +33,9 @@ public class KataBunkaiAdapter extends FirebaseRecyclerAdapter <KataBunkaimodel,
                 Intent intent =new Intent(activity, videoPlayer.class);
                 intent.putExtra("nam", model.getURL());
                 activity.startActivity(intent);
-                KataBunkai.showInterstitial();
+
+                KataBunkai a = KataBunkai.getInstance();
+                a.showInterstitial();
 
             }
 
