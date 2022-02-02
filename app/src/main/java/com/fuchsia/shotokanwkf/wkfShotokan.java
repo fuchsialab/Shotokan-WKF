@@ -9,10 +9,14 @@ import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.AdapterStatus;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,7 +36,7 @@ public class wkfShotokan extends AppCompatActivity {
     private AdView mAdView;
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
-    private String bannerid;
+
     PhotoView photoView;
     Bundle bundle;
 
@@ -103,6 +107,8 @@ public class wkfShotokan extends AppCompatActivity {
             case "dachi": {
 
                 photoView.setImageResource(R.drawable.dachi);
+//                photoView.setImageBitmap(imageLoder.
+//                        decodeSampledBitmapFromResource(getResources(), R.drawable.dachi, 500, 500));
 
                 break;
             }
@@ -312,37 +318,19 @@ public class wkfShotokan extends AppCompatActivity {
     }
 
     public void bannerAds(){
-        DatabaseReference rootref=FirebaseDatabase.getInstance().getReference().child("AdUnits");
-        rootref.addListenerForSingleValueEvent(new ValueEventListener() {
 
+        View view= findViewById(R.id.bannerad);
+        mAdView=new AdView(this);
+        ((RelativeLayout)view).addView(mAdView);
+        mAdView.setAdSize(AdSize.BANNER);
+        mAdView.setAdUnitId(getResources().getString(R.string.bannerid));
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                bannerid=String.valueOf(Objects.requireNonNull(dataSnapshot.child("banner").getValue()).toString());
-
-                View view= findViewById(R.id.bannerad);
-                mAdView=new AdView(wkfShotokan.this);
-                ((RelativeLayout)view).addView(mAdView);
-                mAdView.setAdSize(AdSize.BANNER);
-                mAdView.setAdUnitId(bannerid);
-                AdRequest adRequest = new AdRequest.Builder().build();
-                mAdView.loadAd(adRequest);
-
-
-                //MediationTestSuite.launch(wkfShotokan.this);
-
-
-            }
-
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
+        //MediationTestSuite.launch(basicKarate.this);
 
 
 
     }
+
 }

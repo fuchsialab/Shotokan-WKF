@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -14,6 +13,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.initialization.AdapterStatus;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 
@@ -38,9 +39,7 @@ public class RULL extends AppCompatActivity {
     private AdView mAdView;
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
-    private String bannerid;
     private InterstitialAd mInterstitialAd;
-    private String interstitialId;
 
     ImageButton img,video;
 
@@ -49,7 +48,7 @@ public class RULL extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rull);
 
-        bannerAds();
+
         mAuth=FirebaseAuth.getInstance();
         mDatabase= FirebaseDatabase.getInstance().getReference();
 
@@ -67,6 +66,9 @@ public class RULL extends AppCompatActivity {
                 // Start loading ads here...
             }
         });
+
+        bannerAds();
+        //MediationTestSuite.launch(this);
 
         img=  findViewById(R.id.wkf2);
         video = findViewById(R.id.wkf1);
@@ -90,7 +92,7 @@ public class RULL extends AppCompatActivity {
 
                             AdRequest adRequest = new AdRequest.Builder().build();
 
-                            InterstitialAd.load(RULL.this,interstitialId, adRequest, new InterstitialAdLoadCallback() {
+                            InterstitialAd.load(RULL.this,getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
                                 @Override
                                 public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
 
@@ -123,7 +125,6 @@ public class RULL extends AppCompatActivity {
                 }
 
 
-
             }
         });
 
@@ -143,7 +144,7 @@ public class RULL extends AppCompatActivity {
 
                             AdRequest adRequest = new AdRequest.Builder().build();
 
-                            InterstitialAd.load(RULL.this,interstitialId, adRequest, new InterstitialAdLoadCallback() {
+                            InterstitialAd.load(RULL.this,getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
                                 @Override
                                 public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
 
@@ -178,55 +179,27 @@ public class RULL extends AppCompatActivity {
     }
 
     public void bannerAds(){
-        DatabaseReference rootref=FirebaseDatabase.getInstance().getReference().child("AdUnits");
-        rootref.addListenerForSingleValueEvent(new ValueEventListener() {
+
+        mAdView = findViewById(R.id.bannerad);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
-
-
+        InterstitialAd.load(this,getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                bannerid=String.valueOf(Objects.requireNonNull(dataSnapshot.child("banner").getValue()).toString());
-                interstitialId=String.valueOf(Objects.requireNonNull(dataSnapshot.child("Interstitial").getValue()).toString());
+            public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
 
-                View view= findViewById(R.id.bannerad);
-                mAdView=new AdView(RULL.this);
-                ((RelativeLayout)view).addView(mAdView);
-                mAdView.setAdSize(AdSize.BANNER);
-                mAdView.setAdUnitId(bannerid);
-                AdRequest adRequest = new AdRequest.Builder().build();
-                mAdView.loadAd(adRequest);
-
-                InterstitialAd.load(RULL.this,interstitialId, adRequest, new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-
-                        mInterstitialAd = interstitialAd;
-
-                    }
-
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-
-                        mInterstitialAd = null;
-
-                    }
-                });
-
-
-                //MediationTestSuite.launch(RULL.this);
-
+                mInterstitialAd = interstitialAd;
 
             }
 
-
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+
+                mInterstitialAd = null;
 
             }
         });
-
-
 
 
     }

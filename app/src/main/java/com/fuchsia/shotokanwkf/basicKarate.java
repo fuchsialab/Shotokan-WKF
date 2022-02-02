@@ -45,8 +45,6 @@ public class basicKarate extends AppCompatActivity {
     private static InterstitialAd mInterstitialAd;
 
     static basicKarate instance;
-    private String bannerid = "ca-app-pub-8700099206862921/2944855201";
-    static String interstitialId = "ca-app-pub-8700099206862921/6692528520";
 
     ProgressBar progressBar;
     basicAdapter adapter;
@@ -83,6 +81,7 @@ public class basicKarate extends AppCompatActivity {
                 // Start loading ads here...
             }
         });
+
 
         progressBar = findViewById(R.id.progressbar);
 
@@ -133,13 +132,13 @@ public class basicKarate extends AppCompatActivity {
         mAdView=new AdView(basicKarate.this);
         ((RelativeLayout)view).addView(mAdView);
         mAdView.setAdSize(AdSize.BANNER);
-        mAdView.setAdUnitId(bannerid);
+        mAdView.setAdUnitId(getResources().getString(R.string.bannerid));
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
         //MediationTestSuite.launch(basicKarate.this);
 
-        InterstitialAd.load(basicKarate.this,interstitialId, adRequest, new InterstitialAdLoadCallback() {
+        InterstitialAd.load(basicKarate.this,getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
             @Override
             public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
 
@@ -158,7 +157,6 @@ public class basicKarate extends AppCompatActivity {
     }
 
 
-
     public void showInterstitial() {
 
 
@@ -172,7 +170,7 @@ public class basicKarate extends AppCompatActivity {
 
                     AdRequest adRequest = new AdRequest.Builder().build();
 
-                    InterstitialAd.load(basicKarate.this, interstitialId, adRequest, new InterstitialAdLoadCallback() {
+                    InterstitialAd.load(basicKarate.this, getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
                         @Override
                         public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
 

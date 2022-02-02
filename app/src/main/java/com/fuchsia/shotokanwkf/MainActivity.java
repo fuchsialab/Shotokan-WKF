@@ -54,17 +54,14 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
     private AdView mAdView;
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
-    CardView layout;
+    CardView layout, kummitenew;
 
-    private String bannerid;
     private InterstitialAd mInterstitialAd;
 
     ProgressDialog progressDialog;
     Timer timer;
 
     private static final String COMMON_TAG = "OrintationChange";
-
-    String interstitialId;
 
     Button history,wkf, basic, kata, kumite,nunc;
 
@@ -101,6 +98,15 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
         setContentView(R.layout.activity_main);
 
         layout= findViewById(R.id.linncu);
+        kummitenew= findViewById(R.id.kummitenew);
+
+        kummitenew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,KumiteLong.class));
+            }
+        });
+
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -345,64 +351,44 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
     }
 
 
-
-
     public void bannerAds(){
-        DatabaseReference rootref=FirebaseDatabase.getInstance().getReference().child("AdUnits");
-        rootref.addListenerForSingleValueEvent(new ValueEventListener() {
 
+        View view= findViewById(R.id.bannerad);
+        mAdView=new AdView(this);
+        ((RelativeLayout)view).addView(mAdView);
+        mAdView.setAdSize(AdSize.BANNER);
+        mAdView.setAdUnitId(getResources().getString(R.string.bannerid));
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
+        //MediationTestSuite.launch(basicKarate.this);
+
+        InterstitialAd.load(this,getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                bannerid=String.valueOf(Objects.requireNonNull(dataSnapshot.child("banner").getValue()).toString());
-                interstitialId=String.valueOf(Objects.requireNonNull(dataSnapshot.child("Interstitial").getValue()).toString());
+            public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
 
-                View view= findViewById(R.id.bannerad);
-                mAdView=new AdView(MainActivity.this);
-                ((RelativeLayout)view).addView(mAdView);
-                mAdView.setAdSize(AdSize.BANNER);
-                mAdView.setAdUnitId(bannerid);
-                AdRequest adRequest = new AdRequest.Builder().build();
-                mAdView.loadAd(adRequest);
-
-                InterstitialAd.load(MainActivity.this,interstitialId, adRequest, new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-
-                        mInterstitialAd = interstitialAd;
-
-                    }
-
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-
-                        mInterstitialAd = null;
-
-                    }
-                });
-
-
-                //MediationTestSuite.launch(MainActivity.this);
-
+                mInterstitialAd = interstitialAd;
 
             }
 
-
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+
+                mInterstitialAd = null;
 
             }
         });
 
-
     }
+
+
 
     public void showInterstitial() {
 
 
         if (mInterstitialAd != null) {
 
-            mInterstitialAd.show(MainActivity.this);
+            mInterstitialAd.show(this);
 
             mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
                 @Override
@@ -410,7 +396,7 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
 
                     AdRequest adRequest = new AdRequest.Builder().build();
 
-                    InterstitialAd.load(MainActivity.this, interstitialId, adRequest, new InterstitialAdLoadCallback() {
+                    InterstitialAd.load(MainActivity.this, getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
                         @Override
                         public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
 
@@ -433,6 +419,7 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
         }
 
     }
+
 
 
     @Override

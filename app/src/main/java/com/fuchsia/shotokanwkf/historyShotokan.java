@@ -11,10 +11,13 @@ import android.widget.RelativeLayout;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.AdapterStatus;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -76,37 +79,21 @@ public class historyShotokan extends AppCompatActivity {
     }
 
     public void bannerAds(){
-        DatabaseReference rootref=FirebaseDatabase.getInstance().getReference().child("AdUnits");
-        rootref.addListenerForSingleValueEvent(new ValueEventListener() {
 
+        View view= findViewById(R.id.bannerad);
+        mAdView=new AdView(historyShotokan.this);
+        ((RelativeLayout)view).addView(mAdView);
+        mAdView.setAdSize(AdSize.BANNER);
+        mAdView.setAdUnitId(getResources().getString(R.string.bannerid));
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                bannerid=String.valueOf(Objects.requireNonNull(dataSnapshot.child("banner").getValue()).toString());
-
-                View view= findViewById(R.id.bannerad);
-                mAdView=new AdView(historyShotokan.this);
-                ((RelativeLayout)view).addView(mAdView);
-                mAdView.setAdSize(AdSize.BANNER);
-                mAdView.setAdUnitId(bannerid);
-                AdRequest adRequest = new AdRequest.Builder().build();
-                mAdView.loadAd(adRequest);
-
-
-                //MediationTestSuite.launch(historyShotokan.this);
-
-
-            }
-
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
+        //MediationTestSuite.launch(basicKarate.this);
 
 
     }
+
+
+
+
 }

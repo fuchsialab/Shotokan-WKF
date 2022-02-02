@@ -34,11 +34,11 @@
 
             <ImageView
 
-                android:layout_centerHorizontal="true"
-                android:layout_marginRight="5dp"
                 android:id="@+id/katavid"
                 android:layout_width="300dp"
                 android:layout_height="145dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="5dp"
                 android:src="@drawable/bunk" />
 
             <TextView

@@ -76,5 +76,9 @@ Kumite allows the practical application of the moves found in the kata. During k
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
 
+    <string name="bannerid">ca-app-pub-8700099206862921/2944855201</string>
+    <string name="interstitialId">ca-app-pub-8700099206862921/6692528520</string>
+    <string name="rewardId">ca-app-pub-8700099206862921/8799985605</string>
+
 
 </resources>

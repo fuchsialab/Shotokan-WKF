@@ -44,8 +44,6 @@ public class kumiteActivity extends AppCompatActivity {
     private static InterstitialAd mInterstitialAd;
 
     static kumiteActivity instance;
-    private String bannerid = "ca-app-pub-8700099206862921/2944855201";
-    static String interstitialId = "ca-app-pub-8700099206862921/6692528520";
 
     private static final String COMMON_TAG = "OrintationChange";
 
@@ -58,7 +56,7 @@ public class kumiteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kumite);
 
-        bannerAds();
+
         mAuth=FirebaseAuth.getInstance();
         mDatabase= FirebaseDatabase.getInstance().getReference();
         mDatabase.keepSynced(true);
@@ -79,7 +77,7 @@ public class kumiteActivity extends AppCompatActivity {
                 // Start loading ads here...
             }
         });
-
+        bannerAds();
 
         progressBar = findViewById(R.id.progressbar);
 
@@ -136,16 +134,16 @@ public class kumiteActivity extends AppCompatActivity {
     public void bannerAds(){
 
         View view= findViewById(R.id.bannerad);
-        mAdView=new AdView(kumiteActivity.this);
+        mAdView=new AdView(this);
         ((RelativeLayout)view).addView(mAdView);
         mAdView.setAdSize(AdSize.BANNER);
-        mAdView.setAdUnitId(bannerid);
+        mAdView.setAdUnitId(getResources().getString(R.string.bannerid));
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        //MediationTestSuite.launch(kumiteActivity.this);
+        //MediationTestSuite.launch(basicKarate.this);
 
-        InterstitialAd.load(kumiteActivity.this,interstitialId, adRequest, new InterstitialAdLoadCallback() {
+        InterstitialAd.load(this,getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
             @Override
             public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
 
@@ -170,7 +168,7 @@ public class kumiteActivity extends AppCompatActivity {
 
         if (mInterstitialAd != null) {
 
-            mInterstitialAd.show(kumiteActivity.this);
+            mInterstitialAd.show(this);
 
             mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
                 @Override
@@ -178,7 +176,7 @@ public class kumiteActivity extends AppCompatActivity {
 
                     AdRequest adRequest = new AdRequest.Builder().build();
 
-                    InterstitialAd.load(kumiteActivity.this, interstitialId, adRequest, new InterstitialAdLoadCallback() {
+                    InterstitialAd.load(kumiteActivity.this, getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
                         @Override
                         public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
 

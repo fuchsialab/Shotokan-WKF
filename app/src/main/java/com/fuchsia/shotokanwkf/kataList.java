@@ -45,9 +45,6 @@ public class kataList extends AppCompatActivity {
     private static InterstitialAd mInterstitialAd;
 
     static kataList instance;
-    private String bannerid = "ca-app-pub-8700099206862921/2944855201";
-    static String interstitialId = "ca-app-pub-8700099206862921/6692528520";
-
 
     private static final String COMMON_TAG = "OrintationChange";
 
@@ -139,16 +136,16 @@ public class kataList extends AppCompatActivity {
     public void bannerAds(){
 
         View view= findViewById(R.id.bannerad);
-        mAdView=new AdView(kataList.this);
+        mAdView=new AdView(this);
         ((RelativeLayout)view).addView(mAdView);
         mAdView.setAdSize(AdSize.BANNER);
-        mAdView.setAdUnitId(bannerid);
+        mAdView.setAdUnitId(getResources().getString(R.string.bannerid));
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        //MediationTestSuite.launch(kataList.this);
+        //MediationTestSuite.launch(basicKarate.this);
 
-        InterstitialAd.load(kataList.this,interstitialId, adRequest, new InterstitialAdLoadCallback() {
+        InterstitialAd.load(this,getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
             @Override
             public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
 
@@ -173,7 +170,7 @@ public class kataList extends AppCompatActivity {
 
         if (mInterstitialAd != null) {
 
-            mInterstitialAd.show(kataList.this);
+            mInterstitialAd.show(this);
 
             mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
                 @Override
@@ -181,7 +178,7 @@ public class kataList extends AppCompatActivity {
 
                     AdRequest adRequest = new AdRequest.Builder().build();
 
-                    InterstitialAd.load(kataList.this, interstitialId, adRequest, new InterstitialAdLoadCallback() {
+                    InterstitialAd.load(kataList.this, getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
                         @Override
                         public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
 

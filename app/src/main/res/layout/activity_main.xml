@@ -63,12 +63,12 @@
                 </TextView>
 
                 <ImageView
-                    android:layout_marginTop="4dp"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/bunk"
                     android:id="@+id/imgvv"
                     android:layout_width="250dp"
-                    android:layout_height="135dp"/>
+                    android:layout_height="135dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/bunk" />
                 <TextView
 
                     android:textStyle="bold"
@@ -88,7 +88,7 @@
 
 
     <ScrollView
-
+        android:layout_marginBottom="50dp"
         android:layout_marginTop="2dp"
         android:layout_below="@+id/linncu"
         android:layout_width="match_parent"
@@ -98,43 +98,44 @@
 
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <RelativeLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
 
                 <LinearLayout
-
+                    android:id="@+id/mainnew"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="2dp"
                     android:layout_marginLeft="14dp"
+                    android:layout_marginTop="2dp"
                     android:layout_marginRight="14dp"
-
+                    android:orientation="vertical"
 
                     >
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="165dp"
-                        android:orientation="horizontal"
                         android:layout_marginBottom="14dp"
+                        android:orientation="horizontal"
 
                         >
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="0dp"
-                            app:cardCornerRadius="8dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginEnd="7dp"
                             android:layout_gravity="center"
+                            android:layout_marginEnd="7dp"
+                            android:layout_weight="1"
                             android:orientation="vertical"
+                            app:cardCornerRadius="8dp"
 
 
                             >
@@ -144,12 +145,12 @@
                                 android:layout_height="match_parent">
 
                                 <ImageView
-                                    android:layout_marginBottom="5dp"
                                     android:id="@+id/Imageview1"
                                     android:layout_width="70dp"
                                     android:layout_height="70dp"
-                                    android:src="@drawable/his"
                                     android:layout_centerInParent="true"
+                                    android:layout_marginBottom="5dp"
+                                    android:src="@drawable/his"
 
                                     />
 
@@ -157,21 +158,21 @@
 
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="History"
-                                    android:textColor="#007CB5"
-                                    android:textSize="16sp"
                                     android:layout_below="@id/Imageview1"
                                     android:layout_centerHorizontal="true"
                                     android:layout_marginTop="10dp"
                                     android:layout_marginBottom="10dp"
+                                    android:text="History"
+                                    android:textColor="#007CB5"
+                                    android:textSize="16sp"
                                     android:textStyle="bold"
 
                                     />
 
                                 <Button
+                                    android:id="@+id/btnhistory"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:id="@+id/btnhistory"
                                     android:background="@drawable/ripple_effect"
 
                                     />
@@ -182,12 +183,12 @@
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="0dp"
-                            app:cardCornerRadius="8dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginStart="7dp"
                             android:layout_gravity="center"
+                            android:layout_marginStart="7dp"
+                            android:layout_weight="1"
                             android:orientation="vertical"
+                            app:cardCornerRadius="8dp"
 
 
                             >
@@ -200,29 +201,29 @@
                                     android:id="@+id/Imageview2"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp"
-                                    android:src="@drawable/wkf"
                                     android:layout_centerInParent="true"
+                                    android:src="@drawable/wkf"
 
                                     />
 
                                 <TextView
-                                    android:textColor="#007CB5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="WKF Rull"
-                                    android:textSize="16sp"
                                     android:layout_below="@id/Imageview2"
                                     android:layout_centerHorizontal="true"
                                     android:layout_marginTop="10dp"
                                     android:layout_marginBottom="10dp"
+                                    android:text="WKF Rull"
+                                    android:textColor="#007CB5"
+                                    android:textSize="16sp"
                                     android:textStyle="bold"
 
                                     />
 
                                 <Button
+                                    android:id="@+id/btnwkfrull"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:id="@+id/btnwkfrull"
                                     android:background="@drawable/ripple_effect"
 
 
@@ -237,19 +238,19 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="165dp"
-                        android:orientation="horizontal"
                         android:layout_marginBottom="14dp"
+                        android:orientation="horizontal"
 
                         >
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="0dp"
-                            app:cardCornerRadius="8dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginEnd="7dp"
                             android:layout_gravity="center"
+                            android:layout_marginEnd="7dp"
+                            android:layout_weight="1"
                             android:orientation="vertical"
+                            app:cardCornerRadius="8dp"
 
 
                             >
@@ -262,28 +263,27 @@
                                     android:id="@+id/Imageview3"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp"
-                                    android:src="@drawable/basic"
                                     android:layout_centerInParent="true"
+                                    android:src="@drawable/basic"
 
                                     />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Basic"
-                                    android:textSize="16sp"
                                     android:layout_below="@id/Imageview3"
                                     android:layout_centerHorizontal="true"
                                     android:layout_marginTop="10dp"
                                     android:layout_marginBottom="10dp"
+                                    android:text="Basic"
                                     android:textColor="#007CB5"
-                                    android:textStyle="bold"
-                                    />
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
 
                                 <Button
+                                    android:id="@+id/btnbasic"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:id="@+id/btnbasic"
                                     android:background="@drawable/ripple_effect"
 
 
@@ -295,12 +295,12 @@
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="0dp"
-                            app:cardCornerRadius="8dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginStart="7dp"
                             android:layout_gravity="center"
+                            android:layout_marginStart="7dp"
+                            android:layout_weight="1"
                             android:orientation="vertical"
+                            app:cardCornerRadius="8dp"
 
 
                             >
@@ -313,28 +313,27 @@
                                     android:id="@+id/Imageview4"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp"
-                                    android:src="@drawable/kata"
                                     android:layout_centerInParent="true"
+                                    android:src="@drawable/kata"
 
                                     />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Kata"
-                                    android:textSize="16sp"
                                     android:layout_below="@id/Imageview4"
                                     android:layout_centerHorizontal="true"
                                     android:layout_marginTop="10dp"
                                     android:layout_marginBottom="10dp"
+                                    android:text="Kata"
                                     android:textColor="#007CB5"
-                                    android:textStyle="bold"
-                                    />
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
 
                                 <Button
+                                    android:id="@+id/btnkata"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:id="@+id/btnkata"
                                     android:background="@drawable/ripple_effect"
 
 
@@ -346,22 +345,24 @@
 
                     </LinearLayout>
 
+
                     <LinearLayout
+
                         android:layout_width="match_parent"
                         android:layout_height="165dp"
+                        android:layout_marginBottom="10dp"
                         android:orientation="horizontal"
-                        android:layout_marginBottom="60dp"
 
                         >
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="0dp"
-                            app:cardCornerRadius="8dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginEnd="7dp"
                             android:layout_gravity="center"
+                            android:layout_marginEnd="7dp"
+                            android:layout_weight="1"
                             android:orientation="vertical"
+                            app:cardCornerRadius="8dp"
 
 
                             >
@@ -374,28 +375,27 @@
                                     android:id="@+id/Imageviewnun"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp"
-                                    android:src="@drawable/kum"
                                     android:layout_centerInParent="true"
+                                    android:src="@drawable/kum"
 
                                     />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Kumite"
-                                    android:textSize="16sp"
                                     android:layout_below="@id/Imageviewnun"
                                     android:layout_centerHorizontal="true"
                                     android:layout_marginTop="10dp"
                                     android:layout_marginBottom="10dp"
+                                    android:text="Kumite"
                                     android:textColor="#007CB5"
-                                    android:textStyle="bold"
-                                    />
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
 
                                 <Button
+                                    android:id="@+id/btnkumite"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:id="@+id/btnkumite"
                                     android:background="@drawable/ripple_effect"
 
                                     />
@@ -406,12 +406,12 @@
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="0dp"
-                            app:cardCornerRadius="8dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginStart="7dp"
                             android:layout_gravity="center"
+                            android:layout_marginStart="7dp"
+                            android:layout_weight="1"
                             android:orientation="vertical"
+                            app:cardCornerRadius="8dp"
 
 
                             >
@@ -425,28 +425,27 @@
                                     android:id="@+id/Imageviewkumite"
                                     android:layout_width="80dp"
                                     android:layout_height="80dp"
-                                    android:src="@drawable/nun"
                                     android:layout_centerInParent="true"
+                                    android:src="@drawable/nun"
 
                                     />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/nunchaku"
-                                    android:textSize="16sp"
                                     android:layout_below="@id/Imageviewkumite"
                                     android:layout_centerHorizontal="true"
                                     android:layout_marginTop="10dp"
                                     android:layout_marginBottom="10dp"
+                                    android:text="@string/nunchaku"
                                     android:textColor="#007CB5"
-                                    android:textStyle="bold"
-                                    />
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
 
                                 <Button
+                                    android:id="@+id/btnnun"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:id="@+id/btnnun"
                                     android:background="@drawable/ripple_effect"
 
 
@@ -459,13 +458,78 @@
                     </LinearLayout>
 
 
+
+
                 </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+
+                    android:layout_below="@+id/mainnew"
+                    android:id="@+id/kummitenew"
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/ripple_effect"
+                    android:orientation="vertical"
+                    app:cardCornerRadius="20dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cardback" />
+
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ripple_effect">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="4dp"
+                            android:text="Special Kumite for you"
+                            android:textColor="#009688"
+                            android:textSize="16sp"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <ImageView
+                            android:id="@+id/imgkumite"
+                            android:layout_width="240dp"
+                            android:layout_height="125dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp"
+                            android:src="@drawable/kumimain" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imgkumite"
+                            android:layout_centerHorizontal="true"
+                            android:text="Basic to Advanced WKF Kumite"
+                            android:textColor="#FF9800"
+                            android:textSize="16sp"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
 
 
             </RelativeLayout>
 
 
         </LinearLayout>
+
+
 
 
     </ScrollView>

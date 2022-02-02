@@ -40,7 +40,6 @@ public class basicAdapter extends FirebaseRecyclerAdapter<basicmodel,basicAdapte
                 basicKarate a = basicKarate.getInstance();
                 a.showInterstitial();
 
-
             }
         });
 
