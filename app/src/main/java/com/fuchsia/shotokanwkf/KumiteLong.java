@@ -56,7 +56,7 @@ public class KumiteLong extends AppCompatActivity {
     Kumitelongadapter adapter;
     ProgressBar progressBar;
 
-    private RewardedAd mRewardedAd;
+    private static InterstitialAd mInterstitialAd;
     private final String TAG = "MainActivity";
 
 
@@ -64,8 +64,9 @@ public class KumiteLong extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kumite_long);
+
         bannerAds();
-        rewardAds();
+
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.keepSynced(true);
@@ -126,32 +127,13 @@ public class KumiteLong extends AppCompatActivity {
         return instance;
     }
 
-    public void rewardAds() {
 
-        AdRequest adRequest = new AdRequest.Builder().build();
-        RewardedAd.load(this, "ca-app-pub-8700099206862921/8799985605",
-                adRequest, new RewardedAdLoadCallback() {
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error.
-                        Log.d(TAG, loadAdError.getMessage());
-                        mRewardedAd = null;
-                    }
 
-                    @Override
-                    public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
-                        mRewardedAd = rewardedAd;
-                        Log.d(TAG, "Ad was loaded.");
-                    }
-                });
+    public void bannerAds(){
 
-    }
-
-    public void bannerAds() {
-
-        View view = findViewById(R.id.bannerad);
-        mAdView = new AdView(this);
-        ((RelativeLayout) view).addView(mAdView);
+        View view= findViewById(R.id.bannerad);
+        mAdView=new AdView(this);
+        ((RelativeLayout)view).addView(mAdView);
         mAdView.setAdSize(AdSize.BANNER);
         mAdView.setAdUnitId(getResources().getString(R.string.bannerid));
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -159,27 +141,58 @@ public class KumiteLong extends AppCompatActivity {
 
         //MediationTestSuite.launch(basicKarate.this);
 
+        InterstitialAd.load(this,getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
+            @Override
+            public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+
+                mInterstitialAd = interstitialAd;
+
+            }
+
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+
+                mInterstitialAd = null;
+
+            }
+        });
 
     }
 
+    public void showInterstitial() {
 
-    public void showRewarrdedAds() {
 
-        if (mRewardedAd != null) {
-            Activity activityContext = KumiteLong.this;
-            mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
+        if (mInterstitialAd != null) {
+
+            mInterstitialAd.show(this);
+
+            mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
                 @Override
-                public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
-                    // Handle the reward.
-                    Log.d(TAG, "The user earned the reward.");
-                    int rewardAmount = rewardItem.getAmount();
-                    String rewardType = rewardItem.getType();
-                }
-            });
-        } else {
-            Log.d(TAG, "The rewarded ad wasn't ready yet.");
-        }
+                public void onAdDismissedFullScreenContent() {
 
+                    AdRequest adRequest = new AdRequest.Builder().build();
+
+                    InterstitialAd.load(KumiteLong.this, getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
+                        @Override
+                        public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+
+                            mInterstitialAd = interstitialAd;
+
+                        }
+
+                        @Override
+                        public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+
+                            mInterstitialAd = null;
+
+                        }
+                    });
+
+                }
+
+            });
+
+        }
 
     }
 

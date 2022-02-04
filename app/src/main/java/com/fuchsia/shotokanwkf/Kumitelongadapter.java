@@ -41,8 +41,8 @@ public class Kumitelongadapter extends FirebaseRecyclerAdapter<Kumitelongmodel, 
                 activity.startActivity(intent);
 
                 KumiteLong a = KumiteLong.getInstance();
-                a.showRewarrdedAds();
-                a.rewardAds();
+                a.showInterstitial();
+
 
             }
 

@@ -8,9 +8,8 @@ android {
         applicationId "com.fuchsia.shotokanwkf"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 47
-        versionName "4.7"
-        multiDexEnabled true
+        versionCode 48
+        versionName "4.8"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
