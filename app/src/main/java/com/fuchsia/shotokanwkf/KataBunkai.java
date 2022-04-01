@@ -121,7 +121,7 @@ public class KataBunkai extends AppCompatActivity {
         View view= findViewById(R.id.bannerad);
         mAdView=new AdView(this);
         ((RelativeLayout)view).addView(mAdView);
-        mAdView.setAdSize(AdSize.BANNER);
+        mAdView.setAdSize(AdSize.SMART_BANNER);
         mAdView.setAdUnitId(getResources().getString(R.string.bannerid));
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);

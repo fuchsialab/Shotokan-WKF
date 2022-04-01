@@ -8,12 +8,12 @@ android {
         applicationId "com.fuchsia.shotokanwkf"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 48
-        versionName "4.8"
+        versionCode 53
+        versionName "5.3"
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
-
 
     buildTypes {
         release {
@@ -35,8 +35,9 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
+    implementation 'com.github.MikeOrtiz:TouchImageView:3.1.1'
 
-    implementation 'com.google.android.gms:play-services-ads:20.4.0'
+    implementation 'com.google.android.gms:play-services-ads:20.6.0'
     implementation 'com.google.ads.mediation:facebook:6.5.0.0'
     implementation 'com.google.ads.mediation:applovin:10.1.2.0'
     implementation 'com.google.ads.mediation:adcolony:4.5.0.0'

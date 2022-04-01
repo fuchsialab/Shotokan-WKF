@@ -3,17 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/drawable/gredient.xml" value="0.2703125" />
         <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/drawable/ripple_effect.xml" value="0.26481481481481484" />
         <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/activity_basic_karate.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/activity_history_shotokan.xml" value="0.25416666666666665" />
         <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/activity_kata_bunkai.xml" value="0.25416666666666665" />
         <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/activity_kata_list.xml" value="0.25416666666666665" />
-        <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/activity_kumite_long.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/activity_kumite.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/activity_kumite_long.xml" value="0.264" />
         <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/activity_luncher.xml" value="0.25416666666666665" />
-        <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/activity_rull.xml" value="0.264" />
         <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/activity_wkf_shotokan.xml" value="0.25416666666666665" />
         <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/katacur.xml" value="0.25416666666666665" />
         <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/kumrow.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/nav_header.xml" value="0.25416666666666665" />
         <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/newkumite.xml" value="0.25416666666666665" />
         <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/row.xml" value="0.25416666666666665" />
       </map>

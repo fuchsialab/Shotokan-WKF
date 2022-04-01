@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -256,11 +257,16 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
             }
         });
 
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
 
         bannerAds();
 
-        rewardAds();
-        
+        loadRewardedAd();
 
         history = findViewById(R.id.btnhistory);
         wkf = findViewById(R.id.btnwkfrull);
@@ -342,10 +348,6 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
                     mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
                         @Override
                         public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
-                            // Handle the reward.
-
-                            int rewardAmount = rewardItem.getAmount();
-                            String rewardType = rewardItem.getType();
 
                             mRewardedAd.setFullScreenContentCallback(new FullScreenContentCallback() {
 
@@ -354,7 +356,7 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
 
                                     startActivity(new Intent(MainActivity.this,KumiteLong.class));
                                     mRewardedAd = null;
-                                    rewardAds();
+                                    loadRewardedAd();
 
                                 }
                             });
@@ -362,7 +364,7 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
                     });
                 } else {
                     startActivity(new Intent(MainActivity.this,KumiteLong.class));
-                    rewardAds();
+                    loadRewardedAd();
                 }
             }
         });
@@ -371,26 +373,7 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
 
     }
 
-    public void rewardAds() {
 
-        AdRequest adRequest = new AdRequest.Builder().build();
-        RewardedAd.load(this, "ca-app-pub-8700099206862921/8799985605",
-                adRequest, new RewardedAdLoadCallback() {
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error.
-                        Log.d(TAG, loadAdError.getMessage());
-                        mRewardedAd = null;
-                    }
-
-                    @Override
-                    public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
-                        mRewardedAd = rewardedAd;
-                        Log.d(TAG, "Ad was loaded.");
-                    }
-                });
-
-    }
 
     @Override
     public void onUpdateCheckListener(String urlApp) {
@@ -420,7 +403,7 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
         View view= findViewById(R.id.bannerad);
         mAdView=new AdView(this);
         ((RelativeLayout)view).addView(mAdView);
-        mAdView.setAdSize(AdSize.BANNER);
+        mAdView.setAdSize(AdSize.SMART_BANNER);
         mAdView.setAdUnitId(getResources().getString(R.string.bannerid));
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -446,6 +429,27 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
     }
 
 
+    private void loadRewardedAd() {
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        RewardedAd.load(this, "ca-app-pub-8700099206862921/8799985605",
+                adRequest, new RewardedAdLoadCallback() {
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error.
+                        Log.d(TAG, loadAdError.getMessage());
+                        mRewardedAd = null;
+                    }
+
+                    @Override
+                    public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
+                        mRewardedAd = rewardedAd;
+                        Log.d(TAG, "Ad was loaded.");
+                    }
+                });
+
+    }
 
     public void showInterstitial() {
 

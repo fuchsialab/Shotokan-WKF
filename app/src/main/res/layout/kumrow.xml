@@ -28,7 +28,7 @@
             android:layout_height="match_parent">
 
             <RelativeLayout
-
+                android:background="@drawable/gredient"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
@@ -53,7 +53,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:text="Kumite Tecnic 2"
-                    android:textColor="#03626E"
+                    android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
