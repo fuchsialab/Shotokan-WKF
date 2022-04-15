@@ -8,8 +8,8 @@ android {
         applicationId "com.fuchsia.shotokanwkf"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 53
-        versionName "5.3"
+        versionCode 54
+        versionName "5.4"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -20,6 +20,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 

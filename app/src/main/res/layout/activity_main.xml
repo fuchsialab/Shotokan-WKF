@@ -46,9 +46,8 @@
                 android:layout_height="match_parent">
 
                 <HorizontalScrollView
-
-                    android:id="@+id/linnfu"
                     android:scrollbars="none"
+                    android:id="@+id/linnfu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
@@ -218,22 +217,21 @@
                             android:layout_marginEnd="7dp"
                             android:layout_weight="1"
                             android:orientation="vertical"
-                            app:cardBackgroundColor="#FFF7C3"
                             app:cardCornerRadius="8dp"
 
 
                             >
 
                             <RelativeLayout
+                                android:background="@drawable/maingrredient"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
 
                                 <ImageView
                                     android:id="@+id/Imageview1"
-                                    android:layout_width="70dp"
-                                    android:layout_height="70dp"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
                                     android:layout_centerInParent="true"
-                                    android:layout_marginBottom="5dp"
                                     android:src="@drawable/his"
 
                                     />
@@ -244,11 +242,11 @@
                                     android:layout_height="wrap_content"
                                     android:layout_below="@id/Imageview1"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"
-                                    android:text="History"
-                                    android:textColor="#000000"
-                                    android:textSize="16sp"
+                                    android:text="HISTORY"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="18sp"
                                     android:textStyle="bold"
 
                                     />
@@ -272,13 +270,13 @@
                             android:layout_marginStart="7dp"
                             android:layout_weight="1"
                             android:orientation="vertical"
-                            app:cardBackgroundColor="#F8AEC7"
                             app:cardCornerRadius="8dp"
 
 
                             >
 
                             <RelativeLayout
+                                android:background="@drawable/maingrredient"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
 
@@ -296,11 +294,11 @@
                                     android:layout_height="wrap_content"
                                     android:layout_below="@id/Imageview2"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"
-                                    android:text="WKF Rull"
-                                    android:textColor="#000000"
-                                    android:textSize="16sp"
+                                    android:text="WKF RULL"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="18sp"
                                     android:textStyle="bold"
 
                                     />
@@ -335,13 +333,13 @@
                             android:layout_marginEnd="7dp"
                             android:layout_weight="1"
                             android:orientation="vertical"
-                            app:cardBackgroundColor="#FFDA69"
                             app:cardCornerRadius="8dp"
 
 
                             >
 
                             <RelativeLayout
+                                android:background="@drawable/maingrredient"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
 
@@ -359,11 +357,11 @@
                                     android:layout_height="wrap_content"
                                     android:layout_below="@id/Imageview3"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"
-                                    android:text="Basic"
-                                    android:textColor="#000000"
-                                    android:textSize="16sp"
+                                    android:text="BASIC"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="18sp"
                                     android:textStyle="bold" />
 
                                 <Button
@@ -386,13 +384,13 @@
                             android:layout_marginStart="7dp"
                             android:layout_weight="1"
                             android:orientation="vertical"
-                            app:cardBackgroundColor="#4D9BD8"
                             app:cardCornerRadius="8dp"
 
 
                             >
 
                             <RelativeLayout
+                                android:background="@drawable/maingrredient"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
 
@@ -410,11 +408,11 @@
                                     android:layout_height="wrap_content"
                                     android:layout_below="@id/Imageview4"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"
-                                    android:text="Kata"
-                                    android:textColor="#000000"
-                                    android:textSize="16sp"
+                                    android:text="KATA"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="18sp"
                                     android:textStyle="bold" />
 
                                 <Button
@@ -449,12 +447,12 @@
                             android:layout_marginEnd="7dp"
                             android:layout_weight="1"
                             android:orientation="vertical"
-                            app:cardBackgroundColor="#A776FF"
                             app:cardCornerRadius="8dp"
 
                             >
 
                             <RelativeLayout
+                                android:background="@drawable/maingrredient"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
 
@@ -472,11 +470,11 @@
                                     android:layout_height="wrap_content"
                                     android:layout_below="@id/Imageviewnun"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"
-                                    android:text="Kumite"
-                                    android:textColor="#000000"
-                                    android:textSize="16sp"
+                                    android:text="KUMITE"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="18sp"
                                     android:textStyle="bold" />
 
                                 <Button
@@ -498,13 +496,12 @@
                             android:layout_marginStart="7dp"
                             android:layout_weight="1"
                             android:orientation="vertical"
-                            app:cardBackgroundColor="#FFD89E"
                             app:cardCornerRadius="8dp"
 
                             >
 
                             <RelativeLayout
-
+                                android:background="@drawable/maingrredient"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
 
@@ -522,11 +519,11 @@
                                     android:layout_height="wrap_content"
                                     android:layout_below="@id/Imageviewkumite"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"
                                     android:text="@string/nunchaku"
-                                    android:textColor="#000000"
-                                    android:textSize="16sp"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="18sp"
                                     android:textStyle="bold" />
 
                                 <Button

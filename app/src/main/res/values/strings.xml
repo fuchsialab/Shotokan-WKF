@@ -55,7 +55,7 @@ Kumite allows the practical application of the moves found in the kata. During k
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="nunchaku">Nunchaku</string>
+    <string name="nunchaku">NUNCHAKU</string>
     <string name="lkmkm">https://fuchsialabstore.blogspot.com/p/privacy-policy.html</string>
     <string name="jjjj">https://play.google.com/store/apps/details?id=com.fuchsia.shotokanwkf</string>
 
