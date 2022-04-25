@@ -63,9 +63,6 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
     CardView layout, kummitenew;
 
 
-    private RewardedAd mRewardedAd;
-    private final String TAG = "MainActivity";
-
     private InterstitialAd mInterstitialAd;
 
     ProgressDialog progressDialog;
@@ -266,8 +263,6 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
 
         bannerAds();
 
-        loadRewardedAd();
-
         history = findViewById(R.id.btnhistory);
         wkf = findViewById(R.id.btnwkfrull);
         basic = findViewById(R.id.btnbasic);
@@ -343,29 +338,8 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
             @Override
             public void onClick(View view) {
 
-                if (mRewardedAd != null) {
-                    Activity activityContext = MainActivity.this;
-                    mRewardedAd.show(activityContext, new OnUserEarnedRewardListener() {
-                        @Override
-                        public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
-
-                            mRewardedAd.setFullScreenContentCallback(new FullScreenContentCallback() {
-
-                                @Override
-                                public void onAdDismissedFullScreenContent() {
-
-                                    startActivity(new Intent(MainActivity.this,KumiteLong.class));
-                                    mRewardedAd = null;
-                                    loadRewardedAd();
-
-                                }
-                            });
-                        }
-                    });
-                } else {
-                    startActivity(new Intent(MainActivity.this,KumiteLong.class));
-                    loadRewardedAd();
-                }
+                startActivity(new Intent(MainActivity.this,KumiteLong.class));
+                showInterstitial();
             }
         });
 
@@ -429,27 +403,6 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
     }
 
 
-    private void loadRewardedAd() {
-
-        AdRequest adRequest = new AdRequest.Builder().build();
-
-        RewardedAd.load(this, "ca-app-pub-8700099206862921/8799985605",
-                adRequest, new RewardedAdLoadCallback() {
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error.
-                        Log.d(TAG, loadAdError.getMessage());
-                        mRewardedAd = null;
-                    }
-
-                    @Override
-                    public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
-                        mRewardedAd = rewardedAd;
-                        Log.d(TAG, "Ad was loaded.");
-                    }
-                });
-
-    }
 
     public void showInterstitial() {
 

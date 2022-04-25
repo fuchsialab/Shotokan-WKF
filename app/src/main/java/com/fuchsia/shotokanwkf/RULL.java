@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -41,7 +42,8 @@ public class RULL extends AppCompatActivity {
     DatabaseReference mDatabase;
     private InterstitialAd mInterstitialAd;
 
-    ImageButton img,video;
+    ImageButton video;
+    ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -62,20 +62,18 @@
                     android:id="@+id/wkf1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_centerHorizontal="true"
                     android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/ripple_effect"
                     android:src="@drawable/youwkf" />
-                <ImageButton
+
+                <ImageView
                     android:id="@+id/wkf2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_centerHorizontal="true"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
                     android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="10dp"
+                    android:layout_centerInParent="true"
                     android:background="@drawable/ripple_effect"
                     android:src="@drawable/wkfrr" />
 
