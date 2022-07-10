@@ -15,12 +15,12 @@
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/toolbar"
-            app:titleTextColor="#ffffff"
             android:background="@color/colorPrimary"
-            app:title="Shotokan Karate WKF">
+            app:title="Shotokan Karate WKF"
+            app:titleTextColor="#ffffff">
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -72,7 +72,7 @@
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@drawable/gredient" />
+                                android:background="@drawable/myback" />
 
                             <RelativeLayout
 
@@ -87,8 +87,8 @@
                                     android:layout_centerHorizontal="true"
                                     android:layout_marginTop="4dp"
                                     android:text="Special for you"
-                                    android:textColor="#FFFFFF"
-                                    android:textSize="16sp"
+                                    android:textColor="#A82800"
+                                    android:textSize="18sp"
                                     android:textStyle="bold">
 
                                 </TextView>
@@ -96,10 +96,9 @@
                                 <ImageView
 
                                     android:id="@+id/imgvv"
-                                    android:layout_width="250dp"
-                                    android:layout_height="120dp"
+                                    android:layout_width="300dp"
+                                    android:layout_height="140dp"
                                     android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="10dp"
                                     android:src="@drawable/bunk" />
 
                                 <TextView
@@ -109,7 +108,7 @@
                                     android:layout_below="@id/imgvv"
                                     android:layout_centerHorizontal="true"
                                     android:text="Kata in Details (Correction, Bunkai)"
-                                    android:textColor="#FFFFFF"
+                                    android:textColor="#000000"
                                     android:textSize="18sp"
                                     android:textStyle="bold">
 
@@ -134,7 +133,7 @@
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@drawable/gredient" />
+                                android:background="@drawable/myback" />
 
                             <RelativeLayout
 
@@ -149,8 +148,8 @@
                                     android:layout_centerHorizontal="true"
                                     android:layout_marginTop="4dp"
                                     android:text="Special Kumite for you"
-                                    android:textColor="#FFFFFF"
-                                    android:textSize="16sp"
+                                    android:textColor="#A82800"
+                                    android:textSize="18sp"
                                     android:textStyle="bold">
 
                                 </TextView>
@@ -171,8 +170,8 @@
                                     android:layout_centerHorizontal="true"
                                     android:layout_marginTop="2dp"
                                     android:text="Basic to Advanced WKF Kumite"
-                                    android:textColor="#FEFEFF"
-                                    android:textSize="16sp"
+                                    android:textColor="#000000"
+                                    android:textSize="18sp"
                                     android:textStyle="bold">
 
                                 </TextView>
@@ -223,7 +222,7 @@
                             >
 
                             <RelativeLayout
-                                android:background="@drawable/maingrredient"
+                                android:background="@drawable/myback"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
 
@@ -245,7 +244,7 @@
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"
                                     android:text="HISTORY"
-                                    android:textColor="#FFFFFF"
+                                    android:textColor="#000000"
                                     android:textSize="18sp"
                                     android:textStyle="bold"
 
@@ -276,7 +275,7 @@
                             >
 
                             <RelativeLayout
-                                android:background="@drawable/maingrredient"
+                                android:background="@drawable/myback"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
 
@@ -297,7 +296,7 @@
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"
                                     android:text="WKF RULL"
-                                    android:textColor="#FFFFFF"
+                                    android:textColor="#000000"
                                     android:textSize="18sp"
                                     android:textStyle="bold"
 
@@ -339,7 +338,7 @@
                             >
 
                             <RelativeLayout
-                                android:background="@drawable/maingrredient"
+                                android:background="@drawable/myback"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
 
@@ -360,7 +359,7 @@
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"
                                     android:text="BASIC"
-                                    android:textColor="#FFFFFF"
+                                    android:textColor="#000000"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />
 
@@ -390,7 +389,7 @@
                             >
 
                             <RelativeLayout
-                                android:background="@drawable/maingrredient"
+                                android:background="@drawable/myback"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
 
@@ -411,7 +410,7 @@
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"
                                     android:text="KATA"
-                                    android:textColor="#FFFFFF"
+                                    android:textColor="#000000"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />
 
@@ -452,7 +451,7 @@
                             >
 
                             <RelativeLayout
-                                android:background="@drawable/maingrredient"
+                                android:background="@drawable/myback"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
 
@@ -473,7 +472,7 @@
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"
                                     android:text="KUMITE"
-                                    android:textColor="#FFFFFF"
+                                    android:textColor="#000000"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />
 
@@ -501,7 +500,7 @@
                             >
 
                             <RelativeLayout
-                                android:background="@drawable/maingrredient"
+                                android:background="@drawable/myback"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
 
@@ -522,7 +521,7 @@
                                     android:layout_marginTop="5dp"
                                     android:layout_marginBottom="10dp"
                                     android:text="@string/nunchaku"
-                                    android:textColor="#FFFFFF"
+                                    android:textColor="#000000"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />
 

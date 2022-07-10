@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -12,15 +13,13 @@
         android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="105dp"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_gravity="center"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         android:orientation="vertical"
-        app:cardCornerRadius="10dp"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        app:cardCornerRadius="10dp">
 
         <RelativeLayout
             android:background="@drawable/ripple_effect"
@@ -28,21 +27,21 @@
             android:layout_height="match_parent">
 
             <RelativeLayout
-                android:background="@drawable/gredient"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
+                android:background="@drawable/myback"
 
                 >
 
                 <ImageView
-                    android:layout_marginLeft="5dp"
                     android:id="@+id/katapic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
                     android:layout_centerInParent="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/katta" />
 
@@ -50,23 +49,21 @@
                     android:id="@+id/kataname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
+                    android:layout_centerInParent="true"
                     android:text="Kumite Tecnic 2"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:layout_marginRight="5dp"
                     android:id="@+id/katavid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
                     android:layout_centerInParent="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="5dp"
                     android:src="@drawable/u" />
-
 
 
             </RelativeLayout>

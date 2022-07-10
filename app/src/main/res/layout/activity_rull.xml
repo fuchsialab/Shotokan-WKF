@@ -4,19 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E7E7E7"
     tools:context=".RULL">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:textSize="18sp"
-        android:textColor="#D81B60"
-        android:textStyle="italic"
-        android:layout_marginBottom="2dp"
-        android:textAlignment="center"
-        android:text="Photo and Video"/>
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -37,13 +27,12 @@
             android:layout_height="match_parent">
 
             <RelativeLayout
-
+                android:background="@drawable/myback"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
 
                 >
-
 
 
                 <TextView
@@ -53,7 +42,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:text="WKF Rull"
-                    android:textColor="#19A594"
+                    android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -66,12 +55,13 @@
                     android:layout_centerInParent="true"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/ripple_effect"
-                    android:src="@drawable/youwkf" />
+                    android:src="@drawable/u" />
 
                 <ImageView
                     android:id="@+id/wkf2"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_alignParentLeft="true"
                     android:layout_centerInParent="true"
                     android:background="@drawable/ripple_effect"

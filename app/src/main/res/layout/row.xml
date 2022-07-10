@@ -19,7 +19,7 @@
         app:cardCornerRadius="10dp">
 
         <RelativeLayout
-            android:background="@drawable/gredient"
+            android:background="@drawable/myback"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -50,7 +50,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:text="Kumite Tecnic 2"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#040202"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 

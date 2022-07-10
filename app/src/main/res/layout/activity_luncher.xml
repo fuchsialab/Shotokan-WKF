@@ -26,11 +26,11 @@
 
 
     <ImageView
-        android:layout_marginTop="10dp"
         android:id="@+id/logo"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
         android:src="@drawable/spl" />
 
     <TextView
