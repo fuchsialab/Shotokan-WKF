@@ -49,16 +49,17 @@
 
             <TextView
 
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/youtube_button"
-                android:id="@+id/textView2"
-                android:text="@string/history"
-                android:textSize="16sp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginBottom="2dp"
+                android:text="@string/history"
+                android:textSize="25sp"
+                android:textStyle="bold"
 
                 />
 

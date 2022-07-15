@@ -42,8 +42,8 @@ public class RULL extends AppCompatActivity {
     DatabaseReference mDatabase;
     private InterstitialAd mInterstitialAd;
 
-    ImageButton video;
-    ImageView img;
+    ImageView img, video;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -19,6 +19,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".KumiteLong"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".KataBunkai"
@@ -71,8 +72,10 @@
             android:name=".kataList"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
-        <activity android:name=".wkfShotokan" />
-        <activity android:name=".historyShotokan" />
+        <activity android:name=".wkfShotokan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".historyShotokan"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

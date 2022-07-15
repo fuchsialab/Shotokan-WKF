@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 30
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.fuchsia.shotokanwkf"
         minSdkVersion 21
-        targetSdkVersion 31
-        versionCode 60
-        versionName "6.0"
+        targetSdkVersion 30
+        versionCode 63
+        versionName "6.3"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
