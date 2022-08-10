@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
-                android:background="@drawable/myback"
+                android:background="@color/black_g"
 
                 >
 
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="Kumite Tecnic 2"
-                    android:textColor="#000000"
+                    android:textColor="#FFFFFF"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 

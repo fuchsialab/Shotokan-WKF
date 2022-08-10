@@ -16,15 +16,14 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Photo"
-            android:textStyle="bold"
-            android:textSize="20sp"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="start"
             android:layout_marginStart="25dp"
             android:layout_marginTop="5dp"
-            android:textColor="#0098AC"
-            android:layout_gravity="start"
-            android:layout_alignParentStart="true"
-            />
+            android:text="Photo"
+            android:textColor="#3F51B5"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
 
@@ -46,7 +45,7 @@
             android:layout_marginEnd="25dp"
             android:textSize="20sp"
             android:layout_marginTop="5dp"
-            android:textColor="#0098AC"
+            android:textColor="#3F51B5"
             android:layout_alignParentEnd="true"
 
             />

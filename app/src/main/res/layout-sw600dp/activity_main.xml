@@ -66,7 +66,7 @@
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@drawable/myback" />
+                                android:background="@color/black_g" />
 
                             <RelativeLayout
 
@@ -81,7 +81,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:layout_marginTop="4dp"
                                     android:text="Special for you"
-                                    android:textColor="#A82800"
+                                    android:textColor="#FFFFFF"
                                     android:textSize="22sp"
                                     android:textStyle="bold">
 
@@ -102,7 +102,7 @@
                                     android:layout_below="@id/imgvv"
                                     android:layout_centerHorizontal="true"
                                     android:text="Kata in Details (Correction, Bunkai)"
-                                    android:textColor="#000000"
+                                    android:textColor="#FFFFFF"
                                     android:textSize="22sp"
                                     android:textStyle="bold">
 
@@ -125,7 +125,7 @@
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@drawable/myback" />
+                                android:background="@color/black_g" />
 
                             <RelativeLayout
 
@@ -140,7 +140,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:layout_marginTop="4dp"
                                     android:text="Special Kumite for you"
-                                    android:textColor="#A82800"
+                                    android:textColor="#FFFFFF"
                                     android:textSize="22sp"
                                     android:textStyle="bold">
 
@@ -162,7 +162,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:layout_marginTop="2dp"
                                     android:text="Basic to Advanced WKF Kumite"
-                                    android:textColor="#000000"
+                                    android:textColor="#FFFFFF"
                                     android:textSize="22sp"
                                     android:textStyle="bold">
 
@@ -211,7 +211,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:background="@drawable/myback">
+                                    android:background="@color/black_g">
 
                                     <ImageView
                                         android:id="@+id/Imageview1"
@@ -231,7 +231,7 @@
                                         android:layout_marginTop="5dp"
                                         android:layout_marginBottom="10dp"
                                         android:text="HISTORY"
-                                        android:textColor="#000000"
+                                        android:textColor="#FFFFFF"
                                         android:textSize="22sp"
                                         android:textStyle="bold"
 
@@ -264,7 +264,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:background="@drawable/myback">
+                                    android:background="@color/black_g">
 
                                     <ImageView
                                         android:id="@+id/Imageview2"
@@ -283,7 +283,7 @@
                                         android:layout_marginTop="5dp"
                                         android:layout_marginBottom="10dp"
                                         android:text="WKF RULL"
-                                        android:textColor="#000000"
+                                        android:textColor="#FFFFFF"
                                         android:textSize="22sp"
                                         android:textStyle="bold"
 
@@ -327,7 +327,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:background="@drawable/myback">
+                                    android:background="@color/black_g">
 
                                     <ImageView
                                         android:id="@+id/Imageview3"
@@ -346,7 +346,7 @@
                                         android:layout_marginTop="5dp"
                                         android:layout_marginBottom="10dp"
                                         android:text="BASIC"
-                                        android:textColor="#000000"
+                                        android:textColor="#FFFFFF"
                                         android:textSize="22sp"
                                         android:textStyle="bold" />
 
@@ -378,7 +378,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:background="@drawable/myback">
+                                    android:background="@color/black_g">
 
                                     <ImageView
                                         android:id="@+id/Imageview4"
@@ -397,7 +397,7 @@
                                         android:layout_marginTop="5dp"
                                         android:layout_marginBottom="10dp"
                                         android:text="KATA"
-                                        android:textColor="#000000"
+                                        android:textColor="#FFFFFF"
                                         android:textSize="22sp"
                                         android:textStyle="bold" />
 
@@ -440,7 +440,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:background="@drawable/myback">
+                                    android:background="@color/black_g">
 
                                     <ImageView
                                         android:id="@+id/Imageviewnun"
@@ -459,7 +459,7 @@
                                         android:layout_marginTop="5dp"
                                         android:layout_marginBottom="10dp"
                                         android:text="KUMITE"
-                                        android:textColor="#000000"
+                                        android:textColor="#FFFFFF"
                                         android:textSize="22sp"
                                         android:textStyle="bold" />
 
@@ -489,7 +489,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:background="@drawable/myback">
+                                    android:background="@color/black_g">
 
                                     <ImageView
                                         android:id="@+id/Imageviewkumite"
@@ -508,7 +508,7 @@
                                         android:layout_marginTop="5dp"
                                         android:layout_marginBottom="10dp"
                                         android:text="@string/nunchaku"
-                                        android:textColor="#000000"
+                                        android:textColor="#FFFFFF"
                                         android:textSize="22sp"
                                         android:textStyle="bold" />
 

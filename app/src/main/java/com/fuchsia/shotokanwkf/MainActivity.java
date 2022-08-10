@@ -155,13 +155,6 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
 
                         return true;
 
-                    case R.id.menuwhatsapp:
-
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.fuchsia.saver")));
-
-
-                        return true;
 
                     case R.id.menumoreapp:
                         Intent browses =new Intent(Intent.ACTION_VIEW, Uri.parse(("https://play.google.com/store/apps/collection/cluster?clp=igM4ChkKEzUzNjIwODY3OTExNjgyNTA2MTkQCBgDEhkKEzUzNjIwODY3OTExNjgyNTA2MTkQCBgDGAA%3D:S:ANO1ljJMw2s&gsr=CjuKAzgKGQoTNTM2MjA4Njc5MTE2ODI1MDYxORAIGAMSGQoTNTM2MjA4Njc5MTE2ODI1MDYxORAIGAMYAA%3D%3D:S:ANO1ljI3U6g")));

@@ -12,7 +12,7 @@
 
         android:id="@+id/cardview"
         android:layout_width="match_parent"
-        android:layout_height="105dp"
+        android:layout_height="110dp"
         android:layout_gravity="center"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
@@ -30,18 +30,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
-                android:background="@drawable/myback"
+                android:background="@color/black_g"
 
                 >
 
                 <ImageView
                     android:id="@+id/katapic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
                     android:layout_alignParentLeft="true"
                     android:layout_centerInParent="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/katta" />
 
@@ -51,18 +50,17 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="Kumite Tecnic 2"
-                    android:textColor="#000000"
+                    android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/katavid"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerInParent="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="8dp"
                     android:src="@drawable/u" />
 
 
