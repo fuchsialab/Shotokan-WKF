@@ -7,8 +7,8 @@ android {
         applicationId "com.fuchsia.shotokanwkf"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 66
-        versionName "6.6"
+        versionCode 67
+        versionName "6.7"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 

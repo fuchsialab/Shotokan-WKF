@@ -66,7 +66,7 @@
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@color/black_g" />
+                                android:background="@drawable/gredient" />
 
                             <RelativeLayout
 
@@ -125,7 +125,7 @@
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@color/black_g" />
+                                android:background="@drawable/gredient" />
 
                             <RelativeLayout
 
@@ -211,7 +211,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:background="@color/black_g">
+                                    android:background="@drawable/gredient">
 
                                     <ImageView
                                         android:id="@+id/Imageview1"
@@ -264,7 +264,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:background="@color/black_g">
+                                    android:background="@drawable/gredient">
 
                                     <ImageView
                                         android:id="@+id/Imageview2"
@@ -327,7 +327,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:background="@color/black_g">
+                                    android:background="@drawable/gredient">
 
                                     <ImageView
                                         android:id="@+id/Imageview3"
@@ -378,7 +378,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:background="@color/black_g">
+                                    android:background="@drawable/gredient">
 
                                     <ImageView
                                         android:id="@+id/Imageview4"
@@ -440,7 +440,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:background="@color/black_g">
+                                    android:background="@drawable/gredient">
 
                                     <ImageView
                                         android:id="@+id/Imageviewnun"
@@ -489,7 +489,7 @@
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:background="@color/black_g">
+                                    android:background="@drawable/gredient">
 
                                     <ImageView
                                         android:id="@+id/Imageviewkumite"

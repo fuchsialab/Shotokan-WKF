@@ -22,6 +22,10 @@
         <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/nav_header.xml" value="0.25416666666666665" />
         <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/newkumite.xml" value="0.25416666666666665" />
         <entry key="..\:/Android Apps/Shotokan-WKF/app/src/main/res/layout/row.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/drawable/gredient.xml" value="0.2726407470703125" />
+        <entry key="app/src/main/res/drawable/maingrredient.xml" value="0.1815" />
+        <entry key="app/src/main/res/drawable/progressbar.xml" value="0.1815" />
+        <entry key="app/src/main/res/drawable/ripple_effect.xml" value="0.1815" />
         <entry key="app/src/main/res/layout-sw600dp/activity_basic_karate.xml" value="0.4614456176757813" />
         <entry key="app/src/main/res/layout-sw600dp/activity_history_shotokan.xml" value="0.2136993408203125" />
         <entry key="app/src/main/res/layout-sw600dp/activity_kata_list.xml" value="0.26200279663293186" />
@@ -30,16 +34,16 @@
         <entry key="app/src/main/res/layout-sw600dp/activity_rull.xml" value="0.18203125" />
         <entry key="app/src/main/res/layout-sw600dp/katacur.xml" value="0.18203125" />
         <entry key="app/src/main/res/layout-sw600dp/kumrow.xml" value="0.24058837890625" />
-        <entry key="app/src/main/res/layout-sw600dp/newkumite.xml" value="0.898681640625" />
+        <entry key="app/src/main/res/layout-sw600dp/newkumite.xml" value="0.1" />
         <entry key="app/src/main/res/layout-sw600dp/row.xml" value="0.24527587890625002" />
         <entry key="app/src/main/res/layout/activity_basic_karate.xml" value="0.24270833333333333" />
-        <entry key="app/src/main/res/layout/activity_history_shotokan.xml" value="0.1488433837890625" />
+        <entry key="app/src/main/res/layout/activity_history_shotokan.xml" value="0.37708129882812497" />
         <entry key="app/src/main/res/layout/activity_kata_bunkai.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/activity_kata_list.xml" value="0.36813507080078123" />
         <entry key="app/src/main/res/layout/activity_kumite.xml" value="0.3943191528320313" />
         <entry key="app/src/main/res/layout/activity_kumite_long.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/activity_luncher.xml" value="0.23802083333333332" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24214935302734375" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24575805664062503" />
         <entry key="app/src/main/res/layout/activity_rull.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_video_player.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_wkf_shotokan.xml" value="0.24270833333333333" />
@@ -51,6 +55,7 @@
         <entry key="app/src/main/res/layout/row.xml" value="0.34544219970703127" />
         <entry key="app/src/main/res/menu/nav_item.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.244" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1585" />
       </map>
     </option>
   </component>

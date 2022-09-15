@@ -19,7 +19,7 @@
         app:cardCornerRadius="10dp">
 
         <RelativeLayout
-            android:background="@color/black_g"
+            android:background="@drawable/gredient"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
