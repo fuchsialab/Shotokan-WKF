@@ -1,13 +1,16 @@
 package com.fuchsia.shotokanwkf;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.Rect;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowMetrics;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -53,6 +56,7 @@ public class basicKarate extends AppCompatActivity {
     private static final String COMMON_TAG = "OrintationChange";
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -155,6 +159,7 @@ public class basicKarate extends AppCompatActivity {
         });
 
     }
+
 
 
     public void showInterstitial() {

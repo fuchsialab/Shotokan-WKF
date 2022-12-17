@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
     defaultConfig {
         applicationId "com.fuchsia.shotokanwkf"
         minSdkVersion 21
-        targetSdkVersion 31
-        versionCode 69
-        versionName "6.9"
+        targetSdkVersion 33
+        versionCode 70
+        versionName "7.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -25,6 +25,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    namespace 'com.fuchsia.shotokanwkf'
 }
 
 dependencies {
@@ -42,7 +43,7 @@ dependencies {
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
     implementation 'com.github.MikeOrtiz:TouchImageView:3.1.1'
 
-    implementation 'com.google.android.gms:play-services-ads:21.2.0'
+    implementation 'com.google.android.gms:play-services-ads:21.5.0'
     implementation 'com.google.ads.mediation:facebook:6.11.0.0'
     implementation 'com.google.ads.mediation:applovin:11.4.5.0'
     implementation 'com.google.ads.mediation:adcolony:4.8.0.0'
