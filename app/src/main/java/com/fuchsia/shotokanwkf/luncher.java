@@ -7,7 +7,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class luncher extends AppCompatActivity {
+public class luncher extends MainAd {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -38,7 +38,6 @@ public class historyShotokan extends AppCompatActivity {
     private AdView mAdView;
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
-    private String bannerid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,20 +50,6 @@ public class historyShotokan extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         mDatabase= FirebaseDatabase.getInstance().getReference();
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-                Map<String, AdapterStatus> statusMap = initializationStatus.getAdapterStatusMap();
-                for (String adapterClass : statusMap.keySet()) {
-                    AdapterStatus status = statusMap.get(adapterClass);
-                    Log.d("MyApp", String.format(
-                            "Adapter name: %s, Description: %s, Latency: %d",
-                            adapterClass, status.getDescription(), status.getLatency()));
-                }
-
-                // Start loading ads here...
-            }
-        });
 
         you.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +64,12 @@ public class historyShotokan extends AppCompatActivity {
     }
 
     public void bannerAds(){
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
 
         View view= findViewById(R.id.bannerad);
         mAdView=new AdView(historyShotokan.this);

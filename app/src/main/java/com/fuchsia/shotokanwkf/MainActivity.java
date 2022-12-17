@@ -1,6 +1,4 @@
 package com.fuchsia.shotokanwkf;
-
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,31 +12,19 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.FullScreenContentCallback;
-import com.google.android.gms.ads.LoadAdError;
+
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.OnUserEarnedRewardListener;
-import com.google.android.gms.ads.initialization.AdapterStatus;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.google.android.gms.ads.interstitial.InterstitialAd;
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
-import com.google.android.gms.ads.rewarded.RewardItem;
-import com.google.android.gms.ads.rewarded.RewardedAd;
-import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.Map;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -62,9 +48,6 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
     CardView layout, kummitenew;
-
-
-    private InterstitialAd mInterstitialAd;
 
     ProgressDialog progressDialog;
     Timer timer;
@@ -233,27 +216,6 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
         mDatabase= FirebaseDatabase.getInstance().getReference();
         mDatabase.keepSynced(true);
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-                Map<String, AdapterStatus> statusMap = initializationStatus.getAdapterStatusMap();
-                for (String adapterClass : statusMap.keySet()) {
-                    AdapterStatus status = statusMap.get(adapterClass);
-                    Log.d("MyApp", String.format(
-                            "Adapter name: %s, Description: %s, Latency: %d",
-                            adapterClass, status.getDescription(), status.getLatency()));
-                }
-
-                // Start loading ads here...
-            }
-        });
-
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
-
 
         bannerAds();
 
@@ -368,6 +330,12 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
 
     public void bannerAds(){
 
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
         View view= findViewById(R.id.bannerad);
         mAdView=new AdView(this);
         ((RelativeLayout)view).addView(mAdView);
@@ -378,22 +346,6 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
 
         //MediationTestSuite.launch(basicKarate.this);
 
-        InterstitialAd.load(this,getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
-            @Override
-            public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-
-                mInterstitialAd = interstitialAd;
-
-            }
-
-            @Override
-            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-
-                mInterstitialAd = null;
-
-            }
-        });
-
     }
 
 
@@ -401,36 +353,23 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
     public void showInterstitial() {
 
 
-        if (mInterstitialAd != null) {
+        if (Admob.mInterstitialAd != null) {
 
-            mInterstitialAd.show(this);
+            Admob.mInterstitialAd.show(this);
 
-            mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
+            Admob.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+
                 @Override
                 public void onAdDismissedFullScreenContent() {
-
-                    AdRequest adRequest = new AdRequest.Builder().build();
-
-                    InterstitialAd.load(MainActivity.this, getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
-                        @Override
-                        public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-
-                            mInterstitialAd = interstitialAd;
-
-                        }
-
-                        @Override
-                        public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-
-                            mInterstitialAd = null;
-
-                        }
-                    });
+                    Admob.mInterstitialAd = null;
+                    Admob.loadInter(MainActivity.this);
 
                 }
-
             });
 
+        }
+        else{
+            Admob.loadInter(MainActivity.this);
         }
 
     }
@@ -448,7 +387,6 @@ public class MainActivity extends AppCompatActivity implements UpdateHelper.OnUp
         super.onRestoreInstanceState(savedInstanceState);
         Log.i(COMMON_TAG,"MainActivity onSaveInstanceState");
     }
-
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {

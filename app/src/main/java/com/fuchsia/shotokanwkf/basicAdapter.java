@@ -7,9 +7,11 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.ads.FullScreenContentCallback;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,12 +36,37 @@ public class basicAdapter extends FirebaseRecyclerAdapter<basicmodel,basicAdapte
             public void onClick(View view) {
 
                 AppCompatActivity activity= (AppCompatActivity) view.getContext();
-                Intent intent =new Intent(activity, videoPlayer.class);
-                intent.putExtra("nam", basicmodel.getURL());
-                activity.startActivity(intent);
 
-                basicKarate a = basicKarate.getInstance();
-                a.showInterstitial();
+
+                if (Admob.mInterstitialAd != null) {
+
+                    Admob.mInterstitialAd.show(basicKarate.getInstance());
+
+                    Admob.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+
+                        @Override
+                        public void onAdDismissedFullScreenContent() {
+
+                            Intent intent =new Intent(activity, videoPlayer.class);
+                            intent.putExtra("nam", basicmodel.getURL());
+                            activity.startActivity(intent);
+
+                            Admob.mInterstitialAd = null;
+                            Admob.loadInter(basicKarate.getInstance());
+
+                        }
+                    });
+
+                }
+                else{
+
+                    Intent intent =new Intent(activity, videoPlayer.class);
+                    intent.putExtra("nam", basicmodel.getURL());
+                    activity.startActivity(intent);
+
+                    Admob.mInterstitialAd = null;
+                    Admob.loadInter(basicKarate.getInstance());
+                }
 
             }
         });
@@ -50,12 +77,37 @@ public class basicAdapter extends FirebaseRecyclerAdapter<basicmodel,basicAdapte
 
 
                 AppCompatActivity activity= (AppCompatActivity) view.getContext();
-                Intent intent= new Intent(activity, wkfShotokan.class);
-                intent.putExtra("katapic",basicmodel.getPic());
-                activity.startActivity(intent);
 
-                basicKarate a = basicKarate.getInstance();
-                a.showInterstitial();
+
+                if (Admob.mInterstitialAd != null) {
+
+                    Admob.mInterstitialAd.show(basicKarate.getInstance());
+
+                    Admob.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+
+                        @Override
+                        public void onAdDismissedFullScreenContent() {
+
+                            Intent intent= new Intent(activity, wkfShotokan.class);
+                            intent.putExtra("katapic",basicmodel.getPic());
+                            activity.startActivity(intent);
+
+                            Admob.mInterstitialAd = null;
+                            Admob.loadInter(basicKarate.getInstance());
+
+                        }
+                    });
+
+                }
+                else{
+
+                    Intent intent= new Intent(activity, wkfShotokan.class);
+                    intent.putExtra("katapic",basicmodel.getPic());
+                    activity.startActivity(intent);
+
+                    Admob.mInterstitialAd = null;
+                    Admob.loadInter(basicKarate.getInstance());
+                }
 
 
             }

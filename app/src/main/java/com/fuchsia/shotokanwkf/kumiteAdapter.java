@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.ads.FullScreenContentCallback;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,13 +31,38 @@ public class kumiteAdapter extends FirebaseRecyclerAdapter<kumitemodel,kumiteAda
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    AppCompatActivity activity= (AppCompatActivity) view.getContext();
+
+                AppCompatActivity activity= (AppCompatActivity) view.getContext();
+
+
+                if (Admob.mInterstitialAd != null) {
+
+                    Admob.mInterstitialAd.show(basicKarate.getInstance());
+
+                    Admob.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+
+                        @Override
+                        public void onAdDismissedFullScreenContent() {
+
+                            Intent intent =new Intent(activity, videoPlayer.class);
+                            intent.putExtra("nam", kumitemodel.getURL());
+                            activity.startActivity(intent);
+
+                            Admob.mInterstitialAd = null;
+                            Admob.loadInter(kumiteActivity.getInstance());
+
+                        }
+                    });
+                }
+                else{
+
                     Intent intent =new Intent(activity, videoPlayer.class);
                     intent.putExtra("nam", kumitemodel.getURL());
                     activity.startActivity(intent);
 
-                    kumiteActivity a = kumiteActivity.getInstance();
-                    a.showInterstitial();
+                    Admob.loadInter(kumiteActivity.getInstance());
+                }
+
 
             }
 

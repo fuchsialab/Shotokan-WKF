@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.ads.FullScreenContentCallback;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,12 +36,35 @@ public class kataAdapter extends FirebaseRecyclerAdapter<katamodel,kataAdapter.m
             public void onClick(View view) {
 
                 AppCompatActivity activity= (AppCompatActivity) view.getContext();
-                Intent intent =new Intent(activity, videoPlayer.class);
-                intent.putExtra("nam", katamodel.getURL());
-                activity.startActivity(intent);
 
-                kataList a = kataList.getInstance();
-                a.showInterstitial();
+                if (Admob.mInterstitialAd != null) {
+
+                    Admob.mInterstitialAd.show(basicKarate.getInstance());
+
+                    Admob.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+
+                        @Override
+                        public void onAdDismissedFullScreenContent() {
+
+                            Intent intent =new Intent(activity, videoPlayer.class);
+                            intent.putExtra("nam", katamodel.getURL());
+                            activity.startActivity(intent);
+
+                            Admob.mInterstitialAd = null;
+                            Admob.loadInter(kataList.getInstance());
+
+                        }
+                    });
+                }
+                else{
+
+                    Intent intent =new Intent(activity, videoPlayer.class);
+                    intent.putExtra("nam", katamodel.getURL());
+                    activity.startActivity(intent);
+
+                    Admob.mInterstitialAd = null;
+                    Admob.loadInter(kataList.getInstance());
+                }
 
 
             }
@@ -50,22 +74,37 @@ public class kataAdapter extends FirebaseRecyclerAdapter<katamodel,kataAdapter.m
             @Override
             public void onClick(View view) {
 
-
-//                AppCompatActivity activity= (AppCompatActivity) view.getContext();
-//                Intent intent= new Intent(activity, wkfShotokan.class);
-//                intent.putExtra("katapic",katamodel.getPic());
-//                activity.startActivity(intent);
-//
-//                kataList a = kataList.getInstance();
-//                a.showInterstitial();
-
                 AppCompatActivity activity= (AppCompatActivity) view.getContext();
-                Intent intent =new Intent(activity, videoPlayer.class);
-                intent.putExtra("nam", katamodel.getURL());
-                activity.startActivity(intent);
 
-                kataList a = kataList.getInstance();
-                a.showInterstitial();
+
+                if (Admob.mInterstitialAd != null) {
+
+                    Admob.mInterstitialAd.show(basicKarate.getInstance());
+
+                    Admob.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+
+                        @Override
+                        public void onAdDismissedFullScreenContent() {
+
+                            Intent intent =new Intent(activity, videoPlayer.class);
+                            intent.putExtra("nam", katamodel.getURL());
+                            activity.startActivity(intent);
+
+                            Admob.mInterstitialAd = null;
+                            Admob.loadInter(kataList.getInstance());
+
+                        }
+                    });
+                }
+                else{
+
+                    Intent intent =new Intent(activity, videoPlayer.class);
+                    intent.putExtra("nam", katamodel.getURL());
+                    activity.startActivity(intent);
+
+                    Admob.loadInter(kataList.getInstance());
+                }
+
 
             }
         });

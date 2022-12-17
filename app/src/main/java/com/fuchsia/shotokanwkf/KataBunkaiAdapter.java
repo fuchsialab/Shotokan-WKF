@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.ads.FullScreenContentCallback;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,13 +30,38 @@ public class KataBunkaiAdapter extends FirebaseRecyclerAdapter <KataBunkaimodel,
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AppCompatActivity activity= (AppCompatActivity) view.getContext();
-                Intent intent =new Intent(activity, videoPlayer.class);
-                intent.putExtra("nam", model.getURL());
-                activity.startActivity(intent);
 
-                KataBunkai a = KataBunkai.getInstance();
-                a.showInterstitial();
+                AppCompatActivity activity= (AppCompatActivity) view.getContext();
+
+
+                if (Admob.mInterstitialAd != null) {
+
+                    Admob.mInterstitialAd.show(basicKarate.getInstance());
+
+                    Admob.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+
+                        @Override
+                        public void onAdDismissedFullScreenContent() {
+
+                            Intent intent =new Intent(activity, videoPlayer.class);
+                            intent.putExtra("nam", model.getURL());
+                            activity.startActivity(intent);
+
+                            Admob.mInterstitialAd = null;
+                            Admob.loadInter(KataBunkai.getInstance());
+
+                        }
+                    });
+                }
+                else{
+
+                    Intent intent =new Intent(activity, videoPlayer.class);
+                    intent.putExtra("nam", model.getURL());
+                    activity.startActivity(intent);
+
+                    Admob.loadInter(KataBunkai.getInstance());
+                }
+
 
             }
 

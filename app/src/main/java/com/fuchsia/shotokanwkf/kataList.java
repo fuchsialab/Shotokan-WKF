@@ -42,7 +42,6 @@ public class kataList extends AppCompatActivity {
     private AdView mAdView;
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
-    private static InterstitialAd mInterstitialAd;
 
     static kataList instance;
 
@@ -65,20 +64,6 @@ public class kataList extends AppCompatActivity {
 
         instance = this;
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-                Map<String, AdapterStatus> statusMap = initializationStatus.getAdapterStatusMap();
-                for (String adapterClass : statusMap.keySet()) {
-                    AdapterStatus status = statusMap.get(adapterClass);
-                    Log.d("MyApp", String.format(
-                            "Adapter name: %s, Description: %s, Latency: %d",
-                            adapterClass, status.getDescription(), status.getLatency()));
-                }
-
-                // Start loading ads here...
-            }
-        });
         progressBar = findViewById(R.id.progressbar);
 
         checkConnection();
@@ -135,6 +120,12 @@ public class kataList extends AppCompatActivity {
 
     public void bannerAds(){
 
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
         View view= findViewById(R.id.bannerad);
         mAdView=new AdView(this);
         ((RelativeLayout)view).addView(mAdView);
@@ -145,62 +136,9 @@ public class kataList extends AppCompatActivity {
 
         //MediationTestSuite.launch(basicKarate.this);
 
-        InterstitialAd.load(this,getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
-            @Override
-            public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-
-                mInterstitialAd = interstitialAd;
-
-            }
-
-            @Override
-            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-
-                mInterstitialAd = null;
-
-            }
-        });
 
     }
 
-
-
-    public void showInterstitial() {
-
-
-        if (mInterstitialAd != null) {
-
-            mInterstitialAd.show(this);
-
-            mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
-                @Override
-                public void onAdDismissedFullScreenContent() {
-
-                    AdRequest adRequest = new AdRequest.Builder().build();
-
-                    InterstitialAd.load(kataList.this, getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
-                        @Override
-                        public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-
-                            mInterstitialAd = interstitialAd;
-
-                        }
-
-                        @Override
-                        public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-
-                            mInterstitialAd = null;
-
-                        }
-                    });
-
-                }
-
-            });
-
-        }
-
-    }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

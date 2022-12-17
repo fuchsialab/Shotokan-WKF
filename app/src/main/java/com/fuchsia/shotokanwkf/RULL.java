@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -54,22 +55,6 @@ public class RULL extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         mDatabase= FirebaseDatabase.getInstance().getReference();
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-                Map<String, AdapterStatus> statusMap = initializationStatus.getAdapterStatusMap();
-                for (String adapterClass : statusMap.keySet()) {
-                    AdapterStatus status = statusMap.get(adapterClass);
-                    Log.d("MyApp", String.format(
-                            "Adapter name: %s, Description: %s, Latency: %d",
-                            adapterClass, status.getDescription(), status.getLatency()));
-                }
-
-                // Start loading ads here...
-            }
-        });
-
-        bannerAds();
         //MediationTestSuite.launch(this);
 
         img=  findViewById(R.id.wkf2);
@@ -80,52 +65,31 @@ public class RULL extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (mInterstitialAd != null) {
+                if (Admob.mInterstitialAd != null) {
 
-                    mInterstitialAd.show(RULL.this);
+                    Admob.mInterstitialAd.show(RULL.this);
 
-                    mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
+                    Admob.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+
                         @Override
                         public void onAdDismissedFullScreenContent() {
+                            Admob.mInterstitialAd = null;
+                            Admob.loadInter(RULL.this);
 
                             Intent intent=new Intent(RULL.this,wkfShotokan.class);
                             intent.putExtra("katapic","wkf");
                             startActivity(intent);
-
-                            AdRequest adRequest = new AdRequest.Builder().build();
-
-                            InterstitialAd.load(RULL.this,getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
-                                @Override
-                                public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-
-                                    mInterstitialAd = interstitialAd;
-
-                                }
-
-                                @Override
-                                public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-
-                                    mInterstitialAd = null;
-                                    Intent intent=new Intent(RULL.this,wkfShotokan.class);
-                                    intent.putExtra("katapic","wkf");
-                                    startActivity(intent);
-
-                                }
-                            });
-
                         }
-
                     });
 
                 }
-                else {
-
+                else{
+                    Admob.loadInter(RULL.this);
                     Intent intent=new Intent(RULL.this,wkfShotokan.class);
                     intent.putExtra("katapic","wkf");
                     startActivity(intent);
 
                 }
-
 
             }
         });
@@ -134,77 +98,33 @@ public class RULL extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (mInterstitialAd != null) {
+                if (Admob.mInterstitialAd != null) {
 
-                    mInterstitialAd.show(RULL.this);
+                    Admob.mInterstitialAd.show(RULL.this);
 
-                    mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
+                    Admob.mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+
                         @Override
                         public void onAdDismissedFullScreenContent() {
-
+                            Admob.mInterstitialAd = null;
+                            Admob.loadInter(RULL.this);
                             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=c6r8JwEFowY")));
 
-                            AdRequest adRequest = new AdRequest.Builder().build();
-
-                            InterstitialAd.load(RULL.this,getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
-                                @Override
-                                public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-
-                                    mInterstitialAd = interstitialAd;
-
-                                }
-
-                                @Override
-                                public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-
-                                    mInterstitialAd = null;
-                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=c6r8JwEFowY")));
-
-                                }
-                            });
-
                         }
-
                     });
 
-                }
-                else {
+                } else {
 
+                    Admob.loadInter(RULL.this);
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=c6r8JwEFowY")));
 
                 }
 
-
             }
         });
 
     }
 
-    public void bannerAds(){
-
-        mAdView = findViewById(R.id.bannerad);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
-
-        InterstitialAd.load(this,getResources().getString(R.string.interstitialId), adRequest, new InterstitialAdLoadCallback() {
-            @Override
-            public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-
-                mInterstitialAd = interstitialAd;
-
-            }
-
-            @Override
-            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-
-                mInterstitialAd = null;
-
-            }
-        });
-
-
-    }
 
 
 }
