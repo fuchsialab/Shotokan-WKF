@@ -51,14 +51,21 @@ public class kataAdapter extends FirebaseRecyclerAdapter<katamodel,kataAdapter.m
             public void onClick(View view) {
 
 
+//                AppCompatActivity activity= (AppCompatActivity) view.getContext();
+//                Intent intent= new Intent(activity, wkfShotokan.class);
+//                intent.putExtra("katapic",katamodel.getPic());
+//                activity.startActivity(intent);
+//
+//                kataList a = kataList.getInstance();
+//                a.showInterstitial();
+
                 AppCompatActivity activity= (AppCompatActivity) view.getContext();
-                Intent intent= new Intent(activity, wkfShotokan.class);
-                intent.putExtra("katapic",katamodel.getPic());
+                Intent intent =new Intent(activity, videoPlayer.class);
+                intent.putExtra("nam", katamodel.getURL());
                 activity.startActivity(intent);
 
                 kataList a = kataList.getInstance();
                 a.showInterstitial();
-
 
             }
         });

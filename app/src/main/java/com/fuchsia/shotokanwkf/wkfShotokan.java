@@ -136,180 +136,180 @@ public class wkfShotokan extends AppCompatActivity {
 
                 break;
             }
-            case "a": {
-
-                photoView.setImageResource(R.drawable.taiyoku_shodan);
-
-                break;
-            }
-            case "b": {
-
-                photoView.setImageResource(R.drawable.taiyokunidan);
-
-                break;
-            }
-            case "c": {
-
-                photoView.setImageResource(R.drawable.taiyokkusandan);
-
-                break;
-            }
-            case "d": {
-
-                photoView.setImageResource(R.drawable.hainshodan);
-
-                break;
-            }
-            case "e": {
-
-                photoView.setImageResource(R.drawable.haiannidan);
-
-                break;
-            }
-            case "f": {
-
-                photoView.setImageResource(R.drawable.haiansandan);
-
-                break;
-            }
-            case "g": {
-
-                photoView.setImageResource(R.drawable.haianyondan);
-
-                break;
-            }
-            case "h": {
-
-                photoView.setImageResource(R.drawable.haiangodan);
-
-                break;
-            }
-            case "i": {
-
-                photoView.setImageResource(R.drawable.tekkishodan);
-
-                break;
-            }
-            case "j": {
-
-                photoView.setImageResource(R.drawable.tekkinidan);
-
-                break;
-            }
-            case "k": {
-
-                photoView.setImageResource(R.drawable.tekkisandan);
-
-                break;
-            }
-            case "l": {
-
-                photoView.setImageResource(R.drawable.basaidai);
-
-                break;
-            }
-            case "m": {
-
-                photoView.setImageResource(R.drawable.bassaisho);
-
-                break;
-            }
-            case "n": {
-
-                photoView.setImageResource(R.drawable.kankudai);
-
-                break;
-            }
-            case "o": {
-
-                photoView.setImageResource(R.drawable.kankusho);
-
-                break;
-            }
-            case "p": {
-
-                photoView.setImageResource(R.drawable.empi);
-
-                break;
-            }
-            case "q": {
-
-                photoView.setImageResource(R.drawable.jion);
-
-                break;
-            }
-            case "r": {
-
-                photoView.setImageResource(R.drawable.gangaku);
-
-                break;
-            }
-            case "s": {
-
-                photoView.setImageResource(R.drawable.hangetsu);
-
-                break;
-            }
-            case "t": {
-
-                photoView.setImageResource(R.drawable.jitte);
-
-                break;
-            }
-            case "u": {
-
-                photoView.setImageResource(R.drawable.chinte);
-
-                break;
-            }
-            case "v": {
-
-                photoView.setImageResource(R.drawable.sochin);
-
-                break;
-            }
-            case "w": {
-
-                photoView.setImageResource(R.drawable.meikoyu);
-
-                break;
-            }
-            case "x": {
-
-                photoView.setImageResource(R.drawable.jiin);
-
-                break;
-            }
-            case "y": {
-
-                photoView.setImageResource(R.drawable.gojushihodai);
-
-                break;
-            }
-            case "z": {
-
-                photoView.setImageResource(R.drawable.gojushihosho);
-
-                break;
-            }
-            case "aa": {
-
-                photoView.setImageResource(R.drawable.nijushiho);
-
-                break;
-            }
-            case "bb": {
-
-                photoView.setImageResource(R.drawable.wankan);
-
-                break;
-            }
-            case "cc": {
-
-                photoView.setImageResource(R.drawable.unsu);
-
-                break;
-            }
+//            case "a": {
+//
+//                photoView.setImageResource(R.drawable.taiyoku_shodan);
+//
+//                break;
+//            }
+//            case "b": {
+//
+//                photoView.setImageResource(R.drawable.taiyokunidan);
+//
+//                break;
+//            }
+//            case "c": {
+//
+//                photoView.setImageResource(R.drawable.taiyokkusandan);
+//
+//                break;
+//            }
+//            case "d": {
+//
+//                photoView.setImageResource(R.drawable.hainshodan);
+//
+//                break;
+//            }
+//            case "e": {
+//
+//                photoView.setImageResource(R.drawable.haiannidan);
+//
+//                break;
+//            }
+//            case "f": {
+//
+//                photoView.setImageResource(R.drawable.haiansandan);
+//
+//                break;
+//            }
+//            case "g": {
+//
+//                photoView.setImageResource(R.drawable.haianyondan);
+//
+//                break;
+//            }
+//            case "h": {
+//
+//                photoView.setImageResource(R.drawable.haiangodan);
+//
+//                break;
+//            }
+//            case "i": {
+//
+//                photoView.setImageResource(R.drawable.tekkishodan);
+//
+//                break;
+//            }
+//            case "j": {
+//
+//                photoView.setImageResource(R.drawable.tekkinidan);
+//
+//                break;
+//            }
+//            case "k": {
+//
+//                photoView.setImageResource(R.drawable.tekkisandan);
+//
+//                break;
+//            }
+//            case "l": {
+//
+//                photoView.setImageResource(R.drawable.basaidai);
+//
+//                break;
+//            }
+//            case "m": {
+//
+//                photoView.setImageResource(R.drawable.bassaisho);
+//
+//                break;
+//            }
+//            case "n": {
+//
+//                photoView.setImageResource(R.drawable.kankudai);
+//
+//                break;
+//            }
+//            case "o": {
+//
+//                photoView.setImageResource(R.drawable.kankusho);
+//
+//                break;
+//            }
+//            case "p": {
+//
+//                photoView.setImageResource(R.drawable.empi);
+//
+//                break;
+//            }
+//            case "q": {
+//
+//                photoView.setImageResource(R.drawable.jion);
+//
+//                break;
+//            }
+//            case "r": {
+//
+//                photoView.setImageResource(R.drawable.gangaku);
+//
+//                break;
+//            }
+//            case "s": {
+//
+//                photoView.setImageResource(R.drawable.hangetsu);
+//
+//                break;
+//            }
+//            case "t": {
+//
+//                photoView.setImageResource(R.drawable.jitte);
+//
+//                break;
+//            }
+//            case "u": {
+//
+//                photoView.setImageResource(R.drawable.chinte);
+//
+//                break;
+//            }
+//            case "v": {
+//
+//                photoView.setImageResource(R.drawable.sochin);
+//
+//                break;
+//            }
+//            case "w": {
+//
+//                photoView.setImageResource(R.drawable.meikoyu);
+//
+//                break;
+//            }
+//            case "x": {
+//
+//                photoView.setImageResource(R.drawable.jiin);
+//
+//                break;
+//            }
+//            case "y": {
+//
+//                photoView.setImageResource(R.drawable.gojushihodai);
+//
+//                break;
+//            }
+//            case "z": {
+//
+//                photoView.setImageResource(R.drawable.gojushihosho);
+//
+//                break;
+//            }
+//            case "aa": {
+//
+//                photoView.setImageResource(R.drawable.nijushiho);
+//
+//                break;
+//            }
+//            case "bb": {
+//
+//                photoView.setImageResource(R.drawable.wankan);
+//
+//                break;
+//            }
+//            case "cc": {
+//
+//                photoView.setImageResource(R.drawable.unsu);
+//
+//                break;
+//            }
 
 
         }
