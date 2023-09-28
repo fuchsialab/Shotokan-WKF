@@ -8,7 +8,7 @@
     tools:openDrawer="start"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -186,11 +186,48 @@
                 </HorizontalScrollView>
 
 
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/rounded_corner"
+                    android:id="@+id/removeAds"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/linnfu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+
+                        android:layout_marginTop="3dp"
+                        android:src="@drawable/crown"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp">
+
+                    </ImageView>
+
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:id="@+id/aDS"
+                        android:textColor="@color/white"
+                        android:textSize="25sp"
+                        android:layout_centerHorizontal="true"
+                        android:text="Remove Ads"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
 
 
                 <LinearLayout
 
-                    android:layout_below="@+id/linnfu"
+                    android:layout_below="@+id/removeAds"
                     android:id="@+id/mainnew"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

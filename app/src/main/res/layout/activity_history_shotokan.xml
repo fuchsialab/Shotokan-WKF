@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:background="#E3E3E3"
     android:layout_height="match_parent"
-    tools:context=".historyShotokan">
+    tools:context=".activity.historyShotokan">
 
     <ScrollView
 
@@ -60,8 +60,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="2dp"
                 android:text="@string/history"
-                android:textSize="22sp"
-                android:textStyle="bold"
+                android:textSize="20sp"
 
                 />
 

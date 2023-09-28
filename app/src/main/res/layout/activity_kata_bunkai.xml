@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="#EBE9E9"
     android:layout_height="match_parent"
-    tools:context=".KataBunkai">
+    tools:context=".activity.KataBunkai">
 
 
 

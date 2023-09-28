@@ -4,7 +4,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+    <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
         android:name=".App"
@@ -15,34 +16,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
-            android:name=".KumiteLong"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:name=".activity.KumiteLong"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".KataBunkai"
+            android:name=".activity.KataBunkai"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.kumiteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.videoPlayer"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity
+            android:name=".activity.RULL"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.luncher"
+            android:exported="true"
             android:screenOrientation="portrait">
-
-        </activity>
-        <activity
-            android:name=".kumiteActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
-        <activity
-            android:name=".videoPlayer"
-            android:configChanges="orientation|screenSize|keyboardHidden">
-
-        </activity>
-        <activity
-            android:name=".RULL"
-            android:screenOrientation="portrait">
-
-        </activity>
-        <activity
-            android:name=".luncher"
-            android:screenOrientation="portrait"
-            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -50,11 +44,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -63,17 +57,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".basicKarate"
+            android:name=".activity.basicKarate"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".kataList"
+            android:name=".activity.kataList"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
-        <activity android:name=".wkfShotokan"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".historyShotokan"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.wkfShotokan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.historyShotokan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.Subs"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

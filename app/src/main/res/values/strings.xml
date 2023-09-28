@@ -3,8 +3,7 @@
     <string name="gichin_funakoshi">Gichin Funakoshi</string>
     <string name="givhin_funokoshi">Gichin Funakoshi</string>
 
-    <string name="history">History, Philosophy and Instruction History:\n\n
-
+    <string name="history">History, Philosophy and Instruction History:\n\n\
 
 Funakoshi Sensei PhotoKarate was introduced to Japan in 1922 by an Okinawan schoolteacher by the name of Gichin Funakoshi. Gichin Funakoshi is widely considered as the "father" of modern karate. He was born in Okinawa in 1868 and learnt karate from two highly respected Okinawan masters of the art, Yasutsune (Ankoh) Itosu and Yasutsune (Anko) Azato.
 
@@ -75,9 +74,16 @@ Kumite allows the practical application of the moves found in the kata. During k
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
 
-    <string name="bannerid">ca-app-pub-8700099206862921/2944855201</string>
-    <string name="interstitialId">ca-app-pub-8700099206862921/6692528520</string>
+<!--    <string name="bannerid">ca-app-pub-8700099206862921/2944855201</string>-->
+<!--    <string name="interstitialId">ca-app-pub-8700099206862921/6692528520</string>-->
+<!--    <string name="rewardId">ca-app-pub-8700099206862921/5265450376</string>-->
 
+    <string name="bannerid">	ca-app-pub-3940256099942544/6300978111</string>
+    <string name="interstitialId">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="rewardId">ca-app-pub-3940256099942544/5224354917</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
