@@ -22,7 +22,6 @@ class RULL : AppCompatActivity() {
 
     private lateinit var preferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
-    private val mAdView: AdView? = null
     var mAuth: FirebaseAuth? = null
     var mDatabase: DatabaseReference? = null
     var img: ImageView? = null

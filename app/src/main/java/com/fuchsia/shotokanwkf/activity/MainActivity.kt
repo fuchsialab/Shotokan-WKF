@@ -304,44 +304,27 @@ class MainActivity : AppCompatActivity(), OnUpdateCheckListener {
         nunc = findViewById(R.id.btnnun)
         history?.setOnClickListener(View.OnClickListener {
 
+
             if (preferences.getBoolean("isPremium",true) ){
                 startActivity(Intent(this@MainActivity, historyShotokan::class.java))
             }else{
-                if (rewardedAd != null) {
-                    rewardedAd?.let { ad ->
-                        ad.show(this, OnUserEarnedRewardListener { rewardItem ->
 
-                            rewardedAd = null
-
-                        })
-                        rewardedAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
-                            override fun onAdClicked() {
-
-                            }
-
+                if (Admob.mInterstitialAd != null) {
+                    Admob.mInterstitialAd!!.show(this@MainActivity)
+                    Admob.mInterstitialAd!!.fullScreenContentCallback =
+                        object : FullScreenContentCallback() {
                             override fun onAdDismissedFullScreenContent() {
+                                Admob.mInterstitialAd = null
+                                loadInter(this@MainActivity)
                                 startActivity(Intent(this@MainActivity, historyShotokan::class.java))
-                                loadRewardedAd()
-                            }
-
-                            override fun onAdFailedToShowFullScreenContent(p0: AdError) {
-                                loadRewardedAd()
-                                startActivity(Intent(this@MainActivity, historyShotokan::class.java))
-                            }
-
-                            override fun onAdShowedFullScreenContent() {
-
                             }
                         }
-                    } ?: run {
-                        loadRewardedAd()
-                        startActivity(Intent(this@MainActivity, historyShotokan::class.java))
-                    }
                 } else {
-
-                    loadRewardedAd()
+                    loadInter(this@MainActivity)
                     startActivity(Intent(this@MainActivity, historyShotokan::class.java))
                 }
+
+
 
             }
         })
@@ -352,132 +335,34 @@ class MainActivity : AppCompatActivity(), OnUpdateCheckListener {
                 startActivity(Intent(this@MainActivity, RULL::class.java))
 
             }else{
-                if (rewardedAd != null) {
-                    rewardedAd?.let { ad ->
-                        ad.show(this, OnUserEarnedRewardListener { rewardItem ->
 
-                            rewardedAd = null
-
-                        })
-                        rewardedAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
-                            override fun onAdClicked() {
-
-                            }
-
+                if (Admob.mInterstitialAd != null) {
+                    Admob.mInterstitialAd!!.show(this@MainActivity)
+                    Admob.mInterstitialAd!!.fullScreenContentCallback =
+                        object : FullScreenContentCallback() {
                             override fun onAdDismissedFullScreenContent() {
+                                Admob.mInterstitialAd = null
+                                loadInter(this@MainActivity)
                                 startActivity(Intent(this@MainActivity, RULL::class.java))
-                                loadRewardedAd()
-                            }
-
-                            override fun onAdFailedToShowFullScreenContent(p0: AdError) {
-                                loadRewardedAd()
-                                startActivity(Intent(this@MainActivity, RULL::class.java))
-                            }
-
-                            override fun onAdShowedFullScreenContent() {
-
                             }
                         }
-                    } ?: run {
-                        loadRewardedAd()
-                        startActivity(Intent(this@MainActivity, RULL::class.java))
-                    }
                 } else {
-
-                    loadRewardedAd()
+                    loadInter(this@MainActivity)
                     startActivity(Intent(this@MainActivity, RULL::class.java))
                 }
+
             }
 
 
         })
         basic?.setOnClickListener(View.OnClickListener {
 
-            if (preferences.getBoolean("isPremium",true) ){
-                startActivity(Intent(this@MainActivity, basicKarate::class.java))
-            }
-            else{
-                if (rewardedAd != null) {
-                    rewardedAd?.let { ad ->
-                        ad.show(this, OnUserEarnedRewardListener { rewardItem ->
-
-                            rewardedAd = null
-
-                        })
-                        rewardedAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
-                            override fun onAdClicked() {
-
-                            }
-
-                            override fun onAdDismissedFullScreenContent() {
-                                startActivity(Intent(this@MainActivity, basicKarate::class.java))
-                                loadRewardedAd()
-                            }
-
-                            override fun onAdFailedToShowFullScreenContent(p0: AdError) {
-                                loadRewardedAd()
-                                startActivity(Intent(this@MainActivity, basicKarate::class.java))
-                            }
-
-                            override fun onAdShowedFullScreenContent() {
-
-                            }
-                        }
-                    } ?: run {
-                        loadRewardedAd()
-
-                        startActivity(Intent(this@MainActivity, basicKarate::class.java))
-                    }
-                } else {
-                    loadRewardedAd()
-                    startActivity(Intent(this@MainActivity, basicKarate::class.java))
-                }
-            }
-
+            startActivity(Intent(this@MainActivity, basicKarate::class.java))
 
         })
         kata?.setOnClickListener(View.OnClickListener {
-            if (preferences.getBoolean("isPremium",true) ){
-                startActivity(Intent(this@MainActivity, kataList::class.java))
-            }
-            else{
-                if (rewardedAd != null) {
-                    rewardedAd?.let { ad ->
-                        ad.show(this, OnUserEarnedRewardListener { rewardItem ->
 
-                            rewardedAd = null
-
-                        })
-                        rewardedAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
-                            override fun onAdClicked() {
-
-                            }
-
-                            override fun onAdDismissedFullScreenContent() {
-                                startActivity(Intent(this@MainActivity, kataList::class.java))
-                                loadRewardedAd()
-                            }
-
-                            override fun onAdFailedToShowFullScreenContent(p0: AdError) {
-                                loadRewardedAd()
-                                startActivity(Intent(this@MainActivity, kataList::class.java))
-                            }
-
-                            override fun onAdShowedFullScreenContent() {
-
-                            }
-                        }
-                    } ?: run {
-                        loadRewardedAd()
-
-                        startActivity(Intent(this@MainActivity, kataList::class.java))
-                    }
-                } else {
-
-                    loadRewardedAd()
-                    startActivity(Intent(this@MainActivity, kataList::class.java))
-                }
-            }
+            startActivity(Intent(this@MainActivity, kataList::class.java))
 
 
         })
