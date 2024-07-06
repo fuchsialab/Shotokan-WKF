@@ -4,35 +4,44 @@ package com.fuchsia.shotokanwkf.activity
 
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
-import android.content.ActivityNotFoundException
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.annotation.OptIn
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
-import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
-import com.android.billingclient.api.*
-import com.fuchsia.shotokanwkf.*
+import androidx.core.content.ContextCompat
+import androidx.media3.common.util.UnstableApi
+import com.blogspot.atifsoftwares.animatoolib.Animatoo
+import com.fuchsia.shotokanwkf.Admob
 import com.fuchsia.shotokanwkf.Admob.loadInter
+import com.fuchsia.shotokanwkf.PlayerActivity
 import com.fuchsia.shotokanwkf.R
 import com.fuchsia.shotokanwkf.UpdateHelper.Companion.with
 import com.fuchsia.shotokanwkf.UpdateHelper.OnUpdateCheckListener
-import com.google.android.gms.ads.*
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.OnUserEarnedRewardListener
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
-import com.google.android.material.navigation.NavigationView
 import com.google.android.ump.ConsentForm.OnConsentFormDismissedListener
 import com.google.android.ump.ConsentInformation
 import com.google.android.ump.ConsentRequestParameters
@@ -42,9 +51,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import hotchemi.android.rate.AppRate
-import java.util.*
+import java.util.Objects
+import java.util.Timer
+import java.util.TimerTask
 import java.util.concurrent.atomic.AtomicBoolean
-
 
 class MainActivity : AppCompatActivity(), OnUpdateCheckListener {
 
@@ -65,13 +75,10 @@ class MainActivity : AppCompatActivity(), OnUpdateCheckListener {
     var kumite: Button? = null
     var nunc: Button? = null
     private var backPressTime: Long = 0
-    var navigationView: NavigationView? = null
-    var toggle: ActionBarDrawerToggle? = null
-    var drawerLayout: DrawerLayout? = null
-    var toolbar: Toolbar? = null
+    var toolbar: ImageView? = null
     private var consentInformation: ConsentInformation? = null
     private var rewardedAd: RewardedAd? = null
-    var remAds: RelativeLayout? = null
+    var remAds: CardView? = null
 
     // Use an atomic boolean to initialize the Google Mobile Ads SDK and load ads once.
     private val isMobileAdsInitializeCalled = AtomicBoolean(false)
@@ -87,12 +94,15 @@ class MainActivity : AppCompatActivity(), OnUpdateCheckListener {
         backPressTime = System.currentTimeMillis()
     }
 
-    @SuppressLint("CommitPrefEdits", "MissingInflatedId")
+    @RequiresApi(Build.VERSION_CODES.M)
+    @OptIn(UnstableApi::class) @SuppressLint("CommitPrefEdits", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         remAds = findViewById(R.id.removeAds)
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;//  set status text dark
 
         preferences = getSharedPreferences("subs", MODE_PRIVATE)
         editor = preferences.edit()
@@ -111,6 +121,7 @@ class MainActivity : AppCompatActivity(), OnUpdateCheckListener {
         val params = ConsentRequestParameters.Builder()
             .setTagForUnderAgeOfConsent(false)
             .build()
+
         consentInformation = UserMessagingPlatform.getConsentInformation(this)
         consentInformation?.requestConsentInfoUpdate(
             this,
@@ -196,74 +207,19 @@ class MainActivity : AppCompatActivity(), OnUpdateCheckListener {
 
         })
 
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        drawerLayout = findViewById(R.id.container)
-        navigationView = findViewById(R.id.navdrawer)
-        toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.Open, R.string.Close)
-        drawerLayout?.addDrawerListener(toggle!!)
-        toggle!!.syncState()
-        toggle!!.drawerArrowDrawable.color = resources.getColor(R.color.white)
-        navigationView?.setNavigationItemSelectedListener(NavigationView.OnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.menuHome -> {
-                    drawerLayout?.closeDrawer(GravityCompat.START)
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.menuprivacy -> {
-                    val browse = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.lkmkm)))
-                    startActivity(browse)
-                    drawerLayout?.closeDrawer(GravityCompat.START)
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.menurate -> {
-                    drawerLayout?.closeDrawer(GravityCompat.START)
-                    val appPackageName = packageName
-                    try {
-                        startActivity(
-                            Intent(
-                                Intent.ACTION_VIEW,
-                                Uri.parse("market://details?id=$appPackageName")
-                            )
-                        )
-                    } catch (anfe: ActivityNotFoundException) {
-                        startActivity(
-                            Intent(
-                                Intent.ACTION_VIEW,
-                                Uri.parse("https://play.google.com/store/apps/details?id=$appPackageName")
-                            )
-                        )
-                    }
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.menumoreapp -> {
-                    val browses = Intent(
-                        Intent.ACTION_VIEW,
-                        Uri.parse("https://play.google.com/store/apps/collection/cluster?clp=igM4ChkKEzUzNjIwODY3OTExNjgyNTA2MTkQCBgDEhkKEzUzNjIwODY3OTExNjgyNTA2MTkQCBgDGAA%3D:S:ANO1ljJMw2s&gsr=CjuKAzgKGQoTNTM2MjA4Njc5MTE2ODI1MDYxORAIGAMSGQoTNTM2MjA4Njc5MTE2ODI1MDYxORAIGAMYAA%3D%3D:S:ANO1ljI3U6g")
-                    )
-                    startActivity(browses)
-                    drawerLayout?.closeDrawer(GravityCompat.START)
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.menushare -> {
-                    val sharingIntent = Intent(Intent.ACTION_SEND)
-                    sharingIntent.type = "text/plain"
-                    val shareBody =
-                        "Download Shotokan Karate App and Learn.  https://play.google.com/store/apps/details?id=com.fuchsia.shotokanwkf"
-                    sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Shotokan WKF")
-                    sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody)
-                    startActivity(Intent.createChooser(sharingIntent, "Share via"))
-                    drawerLayout?.closeDrawer(GravityCompat.START)
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.menuexit -> {
-                    finish()
-                    System.exit(0)
-                    return@OnNavigationItemSelectedListener true
-                }
-            }
-            false
-        })
+
+        toolbar = findViewById(R.id.tool_icon)
+
+        toolbar?.setOnClickListener {
+
+            val intent = Intent(this, NavBar::class.java)
+            startActivity(intent)
+            Animatoo.animateSwipeRight(this);
+
+
+        }
+
+
         AppRate.with(this)
             .setInstallDays(0)
             .setLaunchTimes(5)
@@ -281,12 +237,14 @@ class MainActivity : AppCompatActivity(), OnUpdateCheckListener {
         with(this)
             .onUpdateCheck(this)
             .check()
+
         timer = Timer()
         timer!!.schedule(object : TimerTask() {
             override fun run() {
                 progressDialog!!.dismiss()
             }
         }, 3000)
+
         progressDialog = ProgressDialog(this@MainActivity)
         progressDialog!!.show()
         progressDialog!!.setContentView(R.layout.progress)
@@ -329,6 +287,7 @@ class MainActivity : AppCompatActivity(), OnUpdateCheckListener {
             }
         })
         wkf?.setOnClickListener(View.OnClickListener {
+//            startActivity(Intent(this@MainActivity, PlayerActivity::class.java))
 
             if (preferences.getBoolean("isPremium",true) ){
 
@@ -512,7 +471,6 @@ class MainActivity : AppCompatActivity(), OnUpdateCheckListener {
 
     }
 
-
     override fun onUpdateCheckListener(urlApp: String?) {
         val alertDialog = AlertDialog.Builder(this)
             .setTitle("New Version Available")
@@ -601,7 +559,7 @@ class MainActivity : AppCompatActivity(), OnUpdateCheckListener {
             adRequest,
             object : RewardedAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
-                    adError?.toString()?.let { Log.d(TAG, it) }
+                    adError.toString().let { Log.d(TAG, it) }
                     rewardedAd = null
                 }
 

@@ -5,14 +5,14 @@ apply plugin: 'org.jetbrains.kotlin.android'
 android {
 
     namespace 'com.fuchsia.shotokanwkf'
-    compileSdkVersion 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.fuchsia.shotokanwkf"
         minSdkVersion 21
-        targetSdkVersion 33
-        versionCode 841
-        versionName "8.4.1"
+        targetSdkVersion 34
+        versionCode 845
+        versionName "8.4.5"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -41,6 +41,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.3.0-beta01'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -61,10 +62,10 @@ dependencies {
     implementation 'com.google.ads.mediation:adcolony:4.8.0.0'
     //implementation 'com.google.android.ads:mediation-test-suite:3.0.0'
 
-    implementation 'com.google.firebase:firebase-auth:22.1.2'
-    implementation 'com.google.firebase:firebase-analytics:21.3.0'
-    implementation 'com.google.firebase:firebase-database:20.2.2'
-    implementation 'com.google.firebase:firebase-config:21.4.1'
+    implementation 'com.google.firebase:firebase-auth:21.0.8'
+    implementation 'com.google.firebase:firebase-analytics:21.1.1'
+    implementation 'com.google.firebase:firebase-database:20.0.6'
+    implementation 'com.google.firebase:firebase-config:21.1.2'
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
 
     implementation 'com.firebaseui:firebase-ui-database:6.2.1'
@@ -74,6 +75,16 @@ dependencies {
     implementation 'com.google.android.ump:user-messaging-platform:2.1.0'
     implementation "com.android.billingclient:billing:6.0.1"
 
+    implementation("com.github.AtifSayings:Animatoo:1.0.1")
+
+//    implementation 'io.adapty:android-sdk:2.7.0'
+    implementation ("androidx.media3:media3-exoplayer:1.2.1")
+    implementation ("androidx.media3:media3-exoplayer-dash:1.2.1")
+    implementation("androidx.media3:media3-exoplayer-hls:1.2.1")
+    implementation ("androidx.media3:media3-ui:1.2.1")
+
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    implementation ("com.google.android.play:app-update:2.1.0")
 
     
 }

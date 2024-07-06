@@ -30,7 +30,7 @@ class kumiteAdapter(options: FirebaseRecyclerOptions<kumitemodel?>?) :
     private lateinit var editor: SharedPreferences.Editor
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): myviewholder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.kumrow, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.katarowview, parent, false)
         return myviewholder(view)
     }
     override fun onBindViewHolder(holder: myviewholder, position: Int, kumitemodel: kumitemodel) {

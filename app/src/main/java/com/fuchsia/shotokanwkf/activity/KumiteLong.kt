@@ -39,6 +39,9 @@ class KumiteLong : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kumite_long)
 
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;//  set status text dark
+
+
         preferences = getSharedPreferences("subs", MODE_PRIVATE)
         editor = preferences.edit()
 

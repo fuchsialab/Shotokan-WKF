@@ -37,6 +37,7 @@ class luncher : MainAd() {
             .enablePendingPurchases()
             .build()
 
+
         queryPurchase()
 
         hideNavigationbar()
@@ -66,8 +67,6 @@ class luncher : MainAd() {
     fun queryPurchase(){
         billingClient!!.startConnection(object : BillingClientStateListener {
             override fun onBillingServiceDisconnected() {
-
-
 
             }
 

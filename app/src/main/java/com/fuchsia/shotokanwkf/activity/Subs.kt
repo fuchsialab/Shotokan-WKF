@@ -3,6 +3,7 @@ package com.fuchsia.shotokanwkf.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -37,6 +38,9 @@ class Subs : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySubsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;//  set status text dark
+
 
         binding.revItems.layoutManager= LinearLayoutManager(this)
         binding.revItems.hasFixedSize()

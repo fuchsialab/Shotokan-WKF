@@ -34,11 +34,12 @@
         android:src="@drawable/spl" />
 
     <TextView
+        android:fontFamily="@font/bold"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:textSize="20sp"
-        android:textColor="#009AC1"
+        android:textSize="25sp"
+        android:textColor="#3F51B5"
         android:gravity="center_horizontal"
         android:layout_alignParentBottom="true"
         android:text="❤ Made By Fuchsialab ❤"

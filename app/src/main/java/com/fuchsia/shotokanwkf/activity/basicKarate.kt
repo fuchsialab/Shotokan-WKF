@@ -44,6 +44,9 @@ class basicKarate : AppCompatActivity() {
         setContentView(R.layout.activity_basic_karate)
         checkConnection()
 
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;//  set status text dark
+
+
         preferences = getSharedPreferences("subs", MODE_PRIVATE)
         editor = preferences.edit()
 

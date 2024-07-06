@@ -32,6 +32,8 @@ class historyShotokan : AppCompatActivity() {
         setContentView(R.layout.activity_history_shotokan)
         you = findViewById(R.id.youtube_button)
 
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;//  set status text dark
+
         preferences = getSharedPreferences("subs", MODE_PRIVATE)
         editor = preferences.edit()
         if (preferences.getBoolean("isPremium",true) ){
