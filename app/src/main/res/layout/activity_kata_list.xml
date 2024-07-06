@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="#EBE9E9"
+    android:background="#FDF4FF"
     android:layout_height="match_parent">
 
     <RelativeLayout
@@ -15,14 +15,14 @@
 
 
         <TextView
-
+            android:fontFamily="@font/bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Shotokan Kata Video"
+            android:text="Shotokan Kata"
             android:textStyle="bold"
             android:textSize="20sp"
             android:layout_marginTop="5dp"
-            android:textColor="#007CB5"
+            android:textColor="#9C27B0"
             android:layout_centerHorizontal="true"
             />
 

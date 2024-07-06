@@ -4,65 +4,65 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#DCDCDC"
+    android:background="#FDF4FF"
     android:layout_height="match_parent"
     tools:context=".activity.historyShotokan">
 
     <ScrollView
-        android:layout_marginTop="10dp"
+
+        android:layout_above="@+id/bannerad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-
         <RelativeLayout
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="250dp"
-                android:layout_height="320dp"
+                android:layout_width="150dp"
+                android:layout_height="190dp"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
                 app:srcCompat="@drawable/funakosh" />
-
-
             <TextView
-
-                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/imageView"
-                android:layout_centerHorizontal="true"
                 android:text="@string/givhin_funokoshi"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
-                tools:ignore="NotSibling" />
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_below="@id/imageView"
+                android:id="@+id/textView"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/bold"
+
+
+                />
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_below="@+id/textView"
                 android:id="@+id/youtube_button"
-                android:background="@drawable/u"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_below="@+id/textView"
                 android:layout_centerHorizontal="true"
-                android:layout_height="wrap_content" />
+                android:background="@drawable/u" />
 
             <TextView
+                android:textColor="#142633"
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/youtube_button"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginBottom="2dp"
                 android:text="@string/history"
-                android:textColor="@color/black_g"
-                android:textSize="24sp"
-                android:textStyle="bold"
+                android:textSize="20sp"
+                android:fontFamily="@font/regular"
 
                 />
 
@@ -81,7 +81,6 @@
 
 
     </RelativeLayout>
-
 
 
 

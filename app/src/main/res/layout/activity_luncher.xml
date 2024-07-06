@@ -2,43 +2,67 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    >
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
 
     <RelativeLayout
+        android:id="@+id/firstview"
         android:layout_width="match_parent"
-        android:layout_height="800dp"
-        android:background="@drawable/dspl" />
+        android:layout_height="550dp"
+        android:background="@drawable/bacimg">
 
-    <TextView
 
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_above="@+id/logo"
-        android:textColor="@color/white"
-        android:gravity="center_horizontal"
-        android:text="SHOTOKAN WKF"
-        />
+    </RelativeLayout>
 
+    <LinearLayout
+        android:layout_marginTop="400dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+
+        <ImageView
+            android:background="@drawable/circle"
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+
+        </ImageView>
+
+
+    </LinearLayout>
 
     <ImageView
-        android:id="@+id/logo"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/spl" />
+        android:layout_marginTop="200dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/splashbackground"
+        android:layout_width="220dp"
+        android:layout_height="340dp">
+
+    </ImageView>
 
     <TextView
+
+        android:layout_marginTop="500dp"
+        android:layout_width="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#1C3F97"
+        android:gravity="center_horizontal"
+        android:fontFamily="@font/bolditalic"
+        android:text="SHOTOKAN KARATE"
+        />
+
+    <TextView
+        android:fontFamily="@font/light"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:textSize="12sp"
-        android:textColor="#009AC1"
+        android:textColor="#3F51B5"
         android:gravity="center_horizontal"
         android:layout_alignParentBottom="true"
         android:text="❤ Made By Fuchsialab ❤"

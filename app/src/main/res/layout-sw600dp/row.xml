@@ -7,19 +7,20 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
+        android:backgroundTint="#FFE8E8"
         android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
         android:orientation="vertical"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="5dp">
 
         <RelativeLayout
-            android:background="@drawable/gredient"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -28,19 +29,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
-
                 >
 
                 <ImageView
                     android:id="@+id/katapic"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="180dp"
+                    android:layout_height="190dp"
                     android:layout_alignParentLeft="true"
                     android:layout_centerInParent="true"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="10dp"
                     android:background="@drawable/ripple_effect"
-                    android:src="@drawable/katta" />
+                    android:src="@drawable/picbasic" />
 
                 <TextView
                     android:id="@+id/kataname"
@@ -48,20 +48,20 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="Kumite Tecnic 2"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#3C3C3C"
+                    android:fontFamily="@font/bold"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/katavid"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="180dp"
+                    android:layout_height="190dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerInParent="true"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="8dp"
                     android:background="@drawable/ripple_effect"
-                    android:src="@drawable/u" />
-
+                    android:src="@drawable/basicvidpic" />
 
 
             </RelativeLayout>

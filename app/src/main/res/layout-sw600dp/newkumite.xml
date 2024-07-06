@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="#CFCFCF"
+    android:background="#FDF4FF"
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
@@ -22,7 +22,7 @@
         app:cardCornerRadius="20dp">
 
         <RelativeLayout
-            android:background="@drawable/gredient"
+            android:background="@drawable/gradient2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
@@ -43,7 +43,7 @@
                 android:src="@drawable/kumimain" />
 
             <TextView
-
+                android:fontFamily="@font/bold"
                 android:id="@+id/kataname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="Tecnic"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
         </RelativeLayout>

@@ -2,6 +2,7 @@
     <string name="app_name">Shotokan WKF</string>
     <string name="gichin_funakoshi">Gichin Funakoshi</string>
     <string name="givhin_funokoshi">Gichin Funakoshi</string>
+    <string name="default_drm_licence_url">https://cwip-shaka-proxy.appspot.com/no_auth</string>
 
     <string name="history">History, Philosophy and Instruction History:\n\n\
 
@@ -53,7 +54,7 @@ Kumite allows the practical application of the moves found in the kata. During k
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="nunchaku">NUNCHAKU</string>
+    <string name="nunchaku">Nunchaku</string>
     <string name="lkmkm">https://fuchsialabstore.blogspot.com/p/privacy-policy.html</string>
     <string name="jjjj">https://play.google.com/store/apps/details?id=com.fuchsia.shotokanwkf</string>
 

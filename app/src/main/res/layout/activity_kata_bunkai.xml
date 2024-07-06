@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="#EBE9E9"
+    android:background="#FDF4FF"
     android:layout_height="match_parent"
     tools:context=".activity.KataBunkai">
 
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text=" Be Master In Kata and Bunkai"
-        android:textColor="#0080B3"
+        android:textColor="#673AB7"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -33,12 +33,14 @@
 
 
 <androidx.core.widget.NestedScrollView
+
     android:layout_above="@id/bannerad"
     android:layout_below="@id/hhhh"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <RelativeLayout
+        android:background="#FDF4FF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

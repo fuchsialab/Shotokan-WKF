@@ -7,15 +7,11 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
-import android.view.View.SYSTEM_UI_FLAG_FULLSCREEN
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClientStateListener
 import com.android.billingclient.api.BillingResult
 import com.android.billingclient.api.PurchasesUpdatedListener
 import com.android.billingclient.api.QueryPurchasesParams
-import com.fuchsia.shotokanwkf.Admob
 import com.fuchsia.shotokanwkf.MainAd
 import com.fuchsia.shotokanwkf.R
 import java.util.concurrent.Executors
@@ -37,9 +33,13 @@ class luncher : MainAd() {
             .enablePendingPurchases()
             .build()
 
+
         queryPurchase()
 
-        hideNavigationbar()
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+
+
         Handler().postDelayed({
             val i = Intent(this@luncher, MainActivity::class.java)
             startActivity(i)
@@ -48,12 +48,6 @@ class luncher : MainAd() {
 
     }
 
-    private fun hideNavigationbar() {
-        this.window.decorView.systemUiVisibility = (
-                SYSTEM_UI_FLAG_FULLSCREEN
-                        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                )
-    }
 
 
 
@@ -66,8 +60,6 @@ class luncher : MainAd() {
     fun queryPurchase(){
         billingClient!!.startConnection(object : BillingClientStateListener {
             override fun onBillingServiceDisconnected() {
-
-
 
             }
 

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="#FDF4FF"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.NavBar">
+
+    <RelativeLayout
+
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="220dp">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="120dp"
+            android:src="@drawable/spl"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="5dp"
+            android:layout_height="120dp">
+
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_below="@+id/img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shotokan Karate WKF"
+            android:textColor="#673AB7"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/bold"
+            android:layout_marginLeft="10dp"
+
+            >
+
+
+        </TextView>
+
+        <LinearLayout
+            android:background="#3C3C3C"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="1dp">
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/nav_bar"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/ripple_effect"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/back"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck">
+
+        </ImageView>
+
+
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:background="@drawable/ripple_effect"
+        android:layout_below="@+id/topbar"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/home"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_marginStart="20dp"
+            android:src="@drawable/home"
+            android:layout_width="30dp"
+            android:layout_height="30dp">
+
+        </ImageView>
+
+        <TextView
+            android:layout_marginStart="20dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Home"
+            android:fontFamily="@font/light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="HardcodedText">
+
+        </TextView>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:background="@drawable/ripple_effect"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/home"
+        android:id="@+id/share"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_marginStart="20dp"
+            android:src="@drawable/share"
+            android:layout_width="30dp"
+            android:layout_height="30dp">
+
+        </ImageView>
+
+        <TextView
+            android:layout_marginStart="20dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Share"
+            android:fontFamily="@font/light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="HardcodedText">
+
+        </TextView>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/ripple_effect"
+        android:layout_below="@id/share"
+        android:id="@+id/policy"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_marginStart="20dp"
+            android:src="@drawable/policy"
+            android:layout_width="30dp"
+            android:layout_height="30dp">
+
+        </ImageView>
+
+        <TextView
+            android:layout_marginStart="20dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Privacy Policy"
+            android:fontFamily="@font/light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="HardcodedText">
+
+        </TextView>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:background="@drawable/ripple_effect"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/policy"
+        android:id="@+id/moreapp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_marginStart="20dp"
+            android:src="@drawable/android"
+            android:layout_width="30dp"
+            android:layout_height="30dp">
+
+        </ImageView>
+
+        <TextView
+            android:layout_marginStart="20dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="More App"
+            android:fontFamily="@font/light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="HardcodedText">
+
+        </TextView>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:background="@drawable/ripple_effect"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/moreapp"
+        android:id="@+id/rate"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ratting"
+            android:layout_width="30dp"
+            android:layout_height="30dp">
+
+        </ImageView>
+
+        <TextView
+            android:layout_marginStart="20dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Rate App"
+            android:fontFamily="@font/light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="HardcodedText">
+
+        </TextView>
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
